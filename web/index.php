@@ -1,4 +1,4 @@
-<a href="./Week 01/Hello World.html">Week 01/Hello World</a>
+<a href="./Week 01/Hello-World.html">Week 01/Hello World</a>
 
 <?php
 
