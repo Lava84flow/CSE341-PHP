@@ -1,0 +1,32 @@
+/* CSS Document */
+
+body {
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    margin: auto;
+    width: 60%;
+}
+.colored {
+    background-color: lightgreen;
+    transition: background-color 800ms;
+}
+.box {
+    padding: 1em;
+    /*! height: 3em; */
+    width: 60%;
+    margin: auto;
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+.large-font h4 {
+    font-size: 2em;
+    font-weight: 400;
+}
+.large-font h4:hover {
+    font-weight: bolder;
+}
+#Clicker {
+    width: 100%;
+    font-weight: bolder;
+    font-size: 3em;
+    padding: 0.2em;
+}
