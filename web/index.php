@@ -29,15 +29,24 @@
     
     <main>
         <div> 
-        <h1>
-            Assignments
-        </h1>
-        <h2>
-            To Be Announced/Under Construction/Yadda Yadda...
-        </h2>
-        <h3>
-            Just go to the <a href="./about.php">About</a> and <a href="./contact.php">Contact</a> pages for now.
-        </h3>
+            <h1>Assignments</h1>
+            
+            <h2>To Be Announced/Under Construction/Yadda Yadda...</h2>
+            
+            <h3>Just go to the <a href="./about.php">About</a> and <a href="./contact.php">Contact</a> pages for now.</h3>
+            
+            <h3>Week 01</h3>
+            
+            <p>
+                <a href="./Week-01/Hello-World.html">Hello World</a>
+            </p>
+            
+            <h3>Week 02</h3>
+            
+            <p>
+                <a href="./Week-02/team02.html">Team Activity</a>    
+            </p>
+            
         </div>
     </main>
         
