@@ -1,13 +1,21 @@
 // JavaScript Document
 
-function changeButton(node) {
+function clickButton(node) {
     node.innerHTML = 'Clicked!';
     alert('Clicked!');
 }
 
-function changeColor(choice, node) {
+$(document).ready(function() {
+
+    $("#ColorSwitcher").click(function(){
+        $("#UserColor").css("background-color", "yellow");
+    });
+
+});
+
+/*function changeColor(choice, node) {
     color = document.getElementById(choice.id).value;
     
     document.getElementById(node.id).style.backgroundColor = color;
 
-}
+}*/
