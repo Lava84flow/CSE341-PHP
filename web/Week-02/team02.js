@@ -7,8 +7,11 @@ function clickButton(node) {
 
 $(document).ready(function() {
 
+    
     $("#ColorSwitcher").click(function(){
-        $("#UserColor").css("background-color", "yellow");
+//        alert("Value: " + $("#ColorIn").val());
+        var newColor = $("#ColorIn").val();
+        $("#UserColor").css("background-color", newColor);
     });
 
 });
