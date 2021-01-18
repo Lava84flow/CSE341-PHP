@@ -22,7 +22,7 @@
     <header>        
         <?php 
             include './shared/header.php';
-            echo '<h3> Contact</h3></span>';
+            echo '<h3>Contact</h3></span>';
         ?>    
     </header>
     </div>

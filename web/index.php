@@ -22,7 +22,7 @@
     <header>        
         <?php 
             include './shared/header.php';
-            echo '<h3> Home</h3></span>';
+            echo '<h3>Home</h3></span>';
         ?>    
     </header>
     </div>
@@ -45,6 +45,15 @@
             
             <p>
                 <a href="./Week-02/team02.html">Team Activity</a>    
+            </p>
+            
+            <h3>Week 03</h3>
+            
+            <p>
+                <a href="./Week-03/store.php">Shopping Cart</a>    
+            </p>
+            <p>
+                <a href="./Week-03/team03.html">Team Activity</a>    
             </p>
             
         </div>

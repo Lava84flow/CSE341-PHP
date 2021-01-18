@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Week 03 | Shopping Cart</title>
+<title>Week 03 | Checkout</title>
     
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
@@ -22,7 +22,7 @@
     <header>        
         <?php 
             include '../shared/header.php';
-            echo '<h3>Week 03 | Shopping Cart</h3></span>';
+            echo '<h3>Week 03 | Store</h3></span>';
         ?>    
     </header>
     </div>
