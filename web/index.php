@@ -53,7 +53,7 @@
                 <a href="./Week-03/store.php">Shopping Cart</a>    
             </p>
             <p>
-                <a href="./Week-03/team03.html">Team Activity</a>    
+                <a href="./Week-03/team03.php">Team Activity</a>    
             </p>
             
         </div>
