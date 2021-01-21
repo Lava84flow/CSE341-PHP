@@ -18,6 +18,8 @@
     
     <br>
     
+    
+    <
     <span>You Visited: 
         
         <?php
@@ -28,7 +30,7 @@
                 "AS" => "Asia",
                 "AU" => "Australia",
                 "AF" => "Africa",
-                "AN" => "Antarctica"
+                "AN" => "Antarctica",
             );
         
         
