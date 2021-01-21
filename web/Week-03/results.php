@@ -18,17 +18,31 @@
     
     <br>
     
-    <span>You Visited: <?php if(isset($_POST['continents']))
+    <span>You Visited: 
+        
+        <?php
+            $con_map = array(
+                "NA" => "North America",
+                "SA" => "South America",
+                "EU" => "Europe",
+                "AS" => "Asia",
+                "AU" => "Australia",
+                "AF" => "Africa",
+                "AN" => "Antarctica"
+            );
+        
+?>
+        
+        <?php if(isset($_POST['continents']))
         {
             foreach($_POST['continents'] as $id)
             {
-                echo $id.', ';
+                echo $con_map[$id].', ';
             }
         }
         ?>
 </span>
     <br>
-    
     <br>
     
     <span>Your comment was: <br/><?php echo $_POST["comments"]; ?> </span><br>

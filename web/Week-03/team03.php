@@ -45,13 +45,13 @@
         
         <p>
             <span><strong>Continents Visited</strong></span><br>
-            <input type="checkbox" name="continents[]" value="North America">North America<br>
-            <input type="checkbox" name="continents[]" value="South America">South America<br>
-            <input type="checkbox" name="continents[]" value="Europe">Europe<br>
-            <input type="checkbox" name="continents[]" value="Asia">Asia<br>
-            <input type="checkbox" name="continents[]" value="Australia">Australia<br>
-            <input type="checkbox" name="continents[]" value="Africa">Africa<br>
-            <input type="checkbox" name="continents[]" value="Antarctica">Antarctica<br>
+            <input type="checkbox" name="continents[]" value="NA">North America<br>
+            <input type="checkbox" name="continents[]" value="SA">South America<br>
+            <input type="checkbox" name="continents[]" value="EU">Europe<br>
+            <input type="checkbox" name="continents[]" value="AS">Asia<br>
+            <input type="checkbox" name="continents[]" value="AU">Australia<br>
+            <input type="checkbox" name="continents[]" value="AF">Africa<br>
+            <input type="checkbox" name="continents[]" value="AN">Antarctica<br>
         </p>
         
         
