@@ -18,6 +18,19 @@
     
     <br>
     
+    <span>You Visited: <?php if(isset($_POST['continents']))
+        {
+            foreach($_POST['continents'] as $id)
+            {
+                echo $id.', ';
+            }
+        }
+        ?>
+</span>
+    <br>
+    
+    <br>
+    
     <span>Your comment was: <br/><?php echo $_POST["comments"]; ?> </span><br>
 
 <body>
