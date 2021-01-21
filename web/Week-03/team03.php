@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Team Activity | 03</title>
+<link href="team03.css" rel="stylesheet" type="text/css">
+</head>
+
+    <form action="results.php" method="post">
+        
+        <p><strong>Name:</strong><br><input type="text" name="name"></p>
+        
+        <p><strong>E-mail:</strong><br><input type="text" name="email"></p>
+        
+        
+<!--
+        <p>
+            <span>
+                <strong>Major</strong>
+            </span>
+            <br>
+            <input type="radio" name="major" value="Computer Science">Computer Science<br>
+            <input type="radio" name="major" value="Web Design And Development">Web Design And Development<br>
+            <input type="radio" name="major" value="Computer Infomation Technology">Computer Infomation Technology<br>
+            <input type="radio" name="major" value="Computer Engineering">Computer Engineering<br>
+        </p> 
+-->
+        
+        <span>
+            <strong>Major</strong>
+        </span>
+        <br>
+        
+        <?php 
+            
+            $majors=array("Computer Science", "Web Design And Development", "Computer Infomation Technology", "Computer Engineering"); 
+        
+            foreach ($majors as $value) {
+                echo "<input type='radio' name='major' value='$value'>$value <br>";
+            }
+        
+        ?>
+        
+        
+        
+        <p>
+            <span><strong>Continents Visited</strong></span><br>
+            <input type="checkbox" name="continents[]" value="North America">North America<br>
+            <input type="checkbox" name="continents[]" value="South America">South America<br>
+            <input type="checkbox" name="continents[]" value="Europe">Europe<br>
+            <input type="checkbox" name="continents[]" value="Asia">Asia<br>
+            <input type="checkbox" name="continents[]" value="Australia">Australia<br>
+            <input type="checkbox" name="continents[]" value="Africa">Africa<br>
+            <input type="checkbox" name="continents[]" value="Antarctica">Antarctica<br>
+        </p>
+        
+        
+        <span>
+            <label for="comments"><strong>Comments</strong></label>
+        </span>
+        <br>
+        <textarea rows="10" cols="40" id="comments" name="comments"></textarea>
+            
+        
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+<body>
+</body>
+</html>
