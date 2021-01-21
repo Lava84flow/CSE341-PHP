@@ -31,9 +31,8 @@
                 "AN" => "Antarctica"
             );
         
-?>
         
-        <?php if(isset($_POST['continents']))
+        if(isset($_POST['continents']))
         {
             foreach($_POST['continents'] as $id)
             {
