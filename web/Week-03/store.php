@@ -2,26 +2,53 @@
 // Start the session
 session_start();
 
-
-$shopping_cart = [];
-
-if (isset($_POST['AddCart'])) {
+if (isset($_SESSION["shopping_cart"])) {
+    if (isset($_POST['AddCart'])) {
 
     switch ($_POST['AddCart']) {
         case "bull":
-            echo "You pressed Button 1";
+            array_push($_SESSION["shopping_cart"], "bull");
             break;
         case "cliffs":
-            echo "You pressed Button 2";
+            array_push($_SESSION["shopping_cart"], "cliffs");
             break;
         case "orc":
-            echo "You pressed Button 3";
+            array_push($_SESSION["shopping_cart"], "orc");
             break;
         case "space":
-            echo "You pressed Button 4";
+            array_push($_SESSION["shopping_cart"], "space");
             break;
         }
     }
+} else {
+    $_SESSION["shopping_cart"] = [];
+}
+
+//$_SESSION["shopping_cart"] = []/* = $shopping_cart */;
+
+/*if (isset($_POST['AddCart'])) {
+
+    switch ($_POST['AddCart']) {
+        case "bull":
+            array_push($_SESSION["shopping_cart"], "bull");
+            break;
+        case "cliffs":
+            array_push($_SESSION["shopping_cart"], "cliffs");
+            break;
+        case "orc":
+            array_push($_SESSION["shopping_cart"], "orc");
+            break;
+        case "space":
+            array_push($_SESSION["shopping_cart"], "space");
+            break;
+        }
+    }
+*/
+
+print_r($_SESSION["shopping_cart"]);
+//echo '<br>';
+//print_r($shopping_cart);
+
 
 ?>
 
@@ -33,6 +60,7 @@ if (isset($_POST['AddCart'])) {
     
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
+    <script src="shoppingcart.js" defer></script>
 </head>
 
 <body>
@@ -60,6 +88,9 @@ if (isset($_POST['AddCart'])) {
             
         <div class="store-item">
             
+            <h3>Red Bull</h3>
+            <span><strong>$20.00</strong></span> 
+            
             <img class="thumb" src="img/f05c82111541689.60041b9f63641-thumb.png">
             <div class="centered-button">
                 <button type="submit" name="AddCart" value="bull">Add To Cart</button>
@@ -67,6 +98,9 @@ if (isset($_POST['AddCart'])) {
         </div>
         
         <div class="store-item">
+            
+            <h3>Town on the Cliffs</h3>
+            <span><strong>$25.00</strong></span>
             
             <img class="thumb" src="img/jbCNvTM4gwr2qV8X8fW3ZB-970-80-thumb.png">
             
@@ -78,6 +112,9 @@ if (isset($_POST['AddCart'])) {
         
         <div class="store-item">
             
+            <h3>Green Orc</h3>
+            <span><strong>$15.00</strong></span>
+            
             <img class="thumb" src="img/orc07-thumb.png">
             
             <div class="centered-button">
@@ -87,6 +124,9 @@ if (isset($_POST['AddCart'])) {
         </div>
         
         <div class="store-item">
+            
+            <h3>Space From A Moon </h3>
+            <span><strong>$10.00</strong></span>
             
             <img class="thumb" src="img/pixelart_P1_900x420-thumb.png">
             

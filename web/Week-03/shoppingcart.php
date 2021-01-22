@@ -1,3 +1,9 @@
+<?php
+// Start the session
+session_start();
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -28,6 +34,10 @@
     </div>
     
     <main>
+        
+        <?php 
+            print_r($_SESSION["shopping_cart"]);
+        ?>
         
     </main>
     
