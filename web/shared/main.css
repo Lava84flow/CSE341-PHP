@@ -150,3 +150,25 @@ footer img:nth-child(3){
 .clearfix {
     overflow: auto;
 }
+
+
+div .thumb {
+    border: thick solid darkred;
+    border-radius: 2.8em;
+    display: block;
+    margin: auto;
+}
+
+.store-item {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+form .store {
+    
+}
+
+.centered-button {
+    text-align: center;
+    padding-top: 0.5em;
+ }
