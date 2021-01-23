@@ -37,7 +37,11 @@ session_start();
         
         <?php 
             print_r($_SESSION["shopping_cart"]);
+            echo "<br>";
+            print_r($_SESSION["price"]);
         ?>
+        
+        
         
     </main>
     

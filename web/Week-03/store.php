@@ -8,20 +8,25 @@ if (isset($_SESSION["shopping_cart"])) {
     switch ($_POST['AddCart']) {
         case "bull":
             array_push($_SESSION["shopping_cart"], "bull");
+            array_push($_SESSION["price"], 20.00);
             break;
         case "cliffs":
             array_push($_SESSION["shopping_cart"], "cliffs");
+            array_push($_SESSION["price"], 25.00);
             break;
         case "orc":
             array_push($_SESSION["shopping_cart"], "orc");
+            array_push($_SESSION["price"], 15.00);
             break;
         case "space":
             array_push($_SESSION["shopping_cart"], "space");
+            array_push($_SESSION["price"], 10.00);
             break;
         }
     }
 } else {
     $_SESSION["shopping_cart"] = [];
+    $_SESSION["price"] = [];
 }
 
 //$_SESSION["shopping_cart"] = []/* = $shopping_cart */;
@@ -45,7 +50,8 @@ if (isset($_SESSION["shopping_cart"])) {
     }
 */
 
-print_r($_SESSION["shopping_cart"]);
+//  print_r($_SESSION["shopping_cart"]);
+//print_r($_SESSION["price"]);
 //echo '<br>';
 //print_r($shopping_cart);
 
@@ -125,7 +131,7 @@ print_r($_SESSION["shopping_cart"]);
         
         <div class="store-item">
             
-            <h3>Space From A Moon </h3>
+            <h3>Space from a Moon </h3>
             <span><strong>$10.00</strong></span>
             
             <img class="thumb" src="img/pixelart_P1_900x420-thumb.png">
@@ -142,7 +148,7 @@ print_r($_SESSION["shopping_cart"]);
         </form>
         <form action="shoppingcart.php" method="post" class="submit">
             <div style="text-align: center">
-                <button type="submit" value="View Cart">View Cart</button>
+                <button id="viewcart" type="submit" value="View Cart">View Cart</button>
             </div>
         </form>
     </main>
