@@ -180,7 +180,7 @@ form .store {
     /*padding-top: 0.5em;*/
  }
 
-button#viewcart{
+button.rounded{
     border-radius: 1.5em 1.5em 1.5em 1.5em;
 }
 
@@ -206,3 +206,12 @@ button:hover {
     color: rgba(40,40,40,1.00)
 }
 
+.left {
+    display: block;
+    float: left;
+}
+
+.right {
+    display: block;
+    float: right;
+}

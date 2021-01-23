@@ -148,7 +148,7 @@ if (isset($_SESSION["shopping_cart"])) {
         </form>
         <form action="shoppingcart.php" method="post" class="submit">
             <div style="text-align: center">
-                <button id="viewcart" type="submit" value="View Cart">View Cart</button>
+                <button class="rounded" type="submit" value="View Cart">View Cart</button>
             </div>
         </form>
     </main>

@@ -2,10 +2,27 @@
 // Start the session
 session_start();
 
-$_SESSION["shopping_cart"];
+
+
+if (isset($shopping_cart)) {
+    
+} else {
+    $shopping_cart = $_SESSION["shopping_cart"];
+}
+
+if (isset($price)) {
+    
+} else {
+    $price = $_SESSION["price"];
+}
+    
+
 
 if (isset($_POST['RemoveCart'])) {
-    
+    unset($shopping_cart[$_POST['RemoveCart']]);
+    unset($price[$_POST['RemoveCart']]);
+    $_SESSION["shopping_cart"] = $shopping_cart;
+    $_SESSION["price"] = $price;
 }
 
 ?>
@@ -42,10 +59,10 @@ if (isset($_POST['RemoveCart'])) {
     <main>
         
         <?php 
-            print_r($_SESSION["shopping_cart"]);
+            /*print_r($shopping_cart);
             echo "<br>";
-            print_r($_SESSION["price"]);
-            echo '<br>';   
+            print_r($price);
+            echo '<br>';*/   
         
         $img_map = array(
                 "bull" => "img/f05c82111541689.60041b9f63641-thumb.png",
@@ -55,25 +72,41 @@ if (isset($_POST['RemoveCart'])) {
             );
 
         ?>
-        <form action="shoppingcart.php" method="post" class="submit">
+        <form style="text-align: center" action="shoppingcart.php" method="post" class="submit">
         
         <?php
-        if(isset($_SESSION['shopping_cart']))
+        if(isset($_SESSION["shopping_cart"]))
         {
-            foreach($_SESSION["shopping_cart"] as $id)
+            foreach($shopping_cart as $id)
             {
                 echo    '<div class="store-item"><img class="thumb" src="'.$img_map[$id].'">'.
                     '<div class="centered-button">
-                        <button type="submit" name="RemoveCart" value="'.key($_SESSION['shopping_cart']).'">Delete From Cart</button>
+                        <button type="submit" name="RemoveCart" value="'.key($shopping_cart).'">Delete From Cart</button>
                     </div></div>';
-                    next($_SESSION['shopping_cart']);
+                    next($shopping_cart);
                 //<img class="thumb" src="img/pixelart_P1_900x420-thumb.png">
             }
         }
         
+            
+            
         ?>
         
+            <span><strong>Subtotal: $<?php echo number_format((float)array_sum($price), 2, '.', ''); ?></strong></span>
+            
         </form>
+        <div style="height: 2em">
+        <div>
+            <form action="store.php" method="post" class="submit">
+                <button class="rounded left" type="submit">Back to Store</button>
+            </form>
+        </div>
+            
+        <div>
+            <form action="checkout.php" method="post" class="submit">
+                <button class="rounded right" type="submit">Checkout</button>
+        </div>
+        </div>
     </main>
     
     <div>

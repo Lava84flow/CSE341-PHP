@@ -1,3 +1,9 @@
+<?php
+// Start the session
+session_start();
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -28,7 +34,11 @@
     </div>
     
     <main>
+        <div style="text-align: center">
         
+            <span><strong>Subtotal: $<?php echo number_format((float)array_sum($_SESSION["price"]), 2, '.', ''); ?></strong></span>
+        
+        </div>
     </main>
     
     <div>
