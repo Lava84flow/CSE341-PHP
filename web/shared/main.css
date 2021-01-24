@@ -150,3 +150,68 @@ footer img:nth-child(3){
 .clearfix {
     overflow: auto;
 }
+
+
+div .thumb {
+    border: thick solid darkred;
+    border-radius: 2.8em;
+    display: block;
+    margin: auto;
+}
+
+.store-item {
+    padding-top: 0em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+/*.store-item h3 {
+    padding-top: -1em;
+    padding-bottom: -1em;
+    text-align: center;
+}*/
+
+form .store {
+    
+}
+
+.centered-button {
+    text-align: center;
+    /*padding-top: 0.5em;*/
+ }
+
+button.rounded{
+    border-radius: 1.5em 1.5em 1.5em 1.5em;
+}
+
+button {
+    border: none;
+    color: rgb(180,180,180);
+    padding: .5em 1.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /*margin: 4px 2px;*/
+    cursor: pointer;
+    background-color: darkred;
+    font-weight: 600;
+    transition: background-color .5s, color .5s;
+    border-radius: 0 0 1.5em 1.5em;
+}
+
+button:hover {
+    background-color: orangered;
+    /*font-weight: 800;*/
+    color: rgba(40,40,40,1.00)
+}
+
+.left {
+    display: block;
+    float: left;
+}
+
+.right {
+    display: block;
+    float: right;
+}
