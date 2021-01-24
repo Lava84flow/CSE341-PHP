@@ -58,6 +58,12 @@ if (isset($_POST['RemoveCart'])) {
     
     <main>
         
+        <div class="centered-button" style="padding: 1em">
+            <form action="store.php" method="post" class="submit">
+                <button class="rounded" type="submit">Back to Store</button>
+            </form>
+        </div>
+        
         <?php 
             /*print_r($shopping_cart);
             echo "<br>";
@@ -95,17 +101,11 @@ if (isset($_POST['RemoveCart'])) {
             <span><strong>Subtotal: $<?php echo number_format((float)array_sum($price), 2, '.', ''); ?></strong></span>
             
         </form>
-        <div style="height: 2em">
-        <div>
-            <form action="store.php" method="post" class="submit">
-                <button class="rounded left" type="submit">Back to Store</button>
-            </form>
-        </div>
+        
             
-        <div>
+        <div class="centered-button" style="padding: 1em">
             <form action="checkout.php" method="post" class="submit">
-                <button class="rounded right" type="submit">Checkout</button>
-        </div>
+                <button class="rounded centered-button" type="submit">Checkout</button>
         </div>
     </main>
     
