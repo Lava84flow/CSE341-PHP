@@ -70,12 +70,12 @@ if (isset($_POST['RemoveCart'])) {
             print_r($price);
             echo '<br>';*/   
         
-        $img_map = array(
+        $img_map = [
                 "bull" => "img/f05c82111541689.60041b9f63641-thumb.png",
                 "cliffs" => "img/jbCNvTM4gwr2qV8X8fW3ZB-970-80-thumb.png",
                 "orc" => "img/orc07-thumb.png",
                 "space" => "img/pixelart_P1_900x420-thumb.png"
-            );
+            ];
 
         ?>
         <form style="text-align: center" action="shoppingcart.php" method="post" class="submit">

@@ -28,7 +28,7 @@ session_start();
     <header>        
         <?php 
             include '../shared/header.php';
-            echo '<h3>Week 03 | Store</h3></span>';
+            echo '<h3>Week 03 | Checkout</h3></span>';
         ?>    
     </header>
     </div>

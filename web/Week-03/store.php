@@ -131,7 +131,7 @@ if (isset($_SESSION["shopping_cart"])) {
         
         <div class="store-item">
             
-            <h3>Space from a Moon </h3>
+            <h3>Space from a Moon</h3>
             <span><strong>$10.00</strong></span>
             
             <img class="thumb" src="img/pixelart_P1_900x420-thumb.png">
