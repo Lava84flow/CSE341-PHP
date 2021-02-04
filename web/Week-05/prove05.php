@@ -13,7 +13,7 @@ $customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled</title>
+<title>PHP Data Access</title>
     
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
@@ -34,7 +34,7 @@ $customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <header>        
         <?php 
             include '../shared/header.php';
-            echo '<h3>Week 05 | Untitled</h3></span>';
+            echo '<h3>Week 05 | PHP Data Access</h3></span>';
         ?>    
     </header>
     </div>
