@@ -40,8 +40,9 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     
     <main>
-        <?php echo $scripture ?>
+        <?php echo $scripture['first_name'] ?>
     </main>
+        
     <div>
     <footer class="clearfix">
         <?php include '../shared/footer.php'; ?>
