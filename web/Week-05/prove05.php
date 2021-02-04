@@ -6,7 +6,7 @@ $db = get_db();
 $query = 'SELECT * FROM anniesattic.customers';
 $stmt = $db->prepare($query);
 $stmt->execute();
-$scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!doctype html>
@@ -40,7 +40,20 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     
     <main>
-        <?php echo $scripture['first_name'] ?>
+        <?php
+            foreach ($customer as $user)
+            {
+                $id = $user['idcustomers'];
+                $fname = $user['first_name'];
+                $lname = $user['last_name'];
+                $uname = $user['username'];
+                $email = $user['email'];
+                $password = $user['password'];
+                
+                
+                echo "<p>$id, $fname, $lname, $uname, $email, $password</p>";
+            }
+        ?>
     </main>
         
     <div>
