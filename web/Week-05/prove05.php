@@ -1,3 +1,14 @@
+<?php
+
+require '../shared/dbconnect.php';
+$db = get_db();
+
+$query = 'SELECT * FROM anniesattic.customers';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -29,7 +40,7 @@
     </div>
     
     <main>
-        
+        <?php echo $scripture ?>
     </main>
     <div>
     <footer class="clearfix">
