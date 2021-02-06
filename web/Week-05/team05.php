@@ -40,6 +40,8 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     
     <main>
+         <h1>Scripture Dump</h1>
+        
         <?php
             foreach ($scripture as $script)
             {
@@ -50,11 +52,12 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo "<p><b>$book&nbsp;$chapter:$verse</b> - \"$content\"</p>";
             }
         ?>
-        
+        <div>
         <form action="teamresults.php" method="post">
             Book: <input type="text" name="book">
             <input type=submit value="Search">
         </form>
+        </div>
     </main>
         
     <div>
