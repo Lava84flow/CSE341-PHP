@@ -50,6 +50,11 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo "<p><b>$book&nbsp;$chapter:$verse</b> - \"$content\"</p>";
             }
         ?>
+        
+        <form action="teamresults.php" method="post">
+            Book: <input type="text" name="book">
+            <input type=submit value="Search">
+        </form>
     </main>
         
     <div>

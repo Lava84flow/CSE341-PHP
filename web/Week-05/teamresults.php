@@ -14,19 +14,36 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!doctype html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Results</title>
-    <link href="../../bootstrap.min.css" rel="stylesheet">
-    <link href="form-validation.css" rel="stylesheet">
+<meta charset="utf-8">
+<title>Scripture Results</title>
+    
+    <link href="../shared/main.css" rel="stylesheet" type="text/css">
+    <script src="../shared/main.js" defer></script>
+    <script src="shoppingcart.js" defer></script>
 </head>
 
-<body class="bg-light">
-
-    <div class="container">
+<body>
+    
+        <div class="nav-bar sticky clearfix">
+    <nav>
+        <?php include '../shared/nav.php'; ?>  
+    </nav>
+    </div>
+    
+    <div id="wrapper">
+        
+    <div>
+    <header>        
+        <?php 
+            include '../shared/header.php';
+            echo '<h3>Week 05 | Scripture Results</h3></span>';
+        ?>    
+    </header>
+    </div>
+    
+    <main>
         <h1>Scripture Results</h1>
 
         <?php
@@ -39,8 +56,14 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo "<p><a href='details.php?id=$id'>$book&nbsp;$chapter:$verse</a></p>";
             }
         ?>
+    </main>
+        
+    <div>
+    <footer class="clearfix">
+        <?php include '../shared/footer.php'; ?>
+    </footer>
     </div>
-
+    </div>
+    
 </body>
-
 </html>
