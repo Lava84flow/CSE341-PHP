@@ -81,11 +81,11 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <th>Shipping_address</th>
     <th>Billing_address</th>
   </tr>
-  <tr>
+<!--  <tr>
     <td>Jill</td>
     <td>Smith</td>
     <td>50</td>
-  </tr>
+  </tr>-->
         
         <?php
 

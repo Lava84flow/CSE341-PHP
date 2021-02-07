@@ -215,3 +215,7 @@ button:hover {
     display: block;
     float: right;
 }
+
+table, th, td {
+  border: 1px solid orangered;
+}
