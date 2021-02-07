@@ -3,10 +3,17 @@
 require '../shared/dbconnect.php';
 $db = get_db();
 
-$query = 'SELECT * FROM anniesattic.customers';
-$stmt = $db->prepare($query);
+$query1 = 'SELECT * FROM anniesattic.customers';
+$stmt = $db->prepare($query1);
 $stmt->execute();
-$customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$query2 = 'SELECT * FROM anniesattic.orders';
+$stmt = $db->prepare($query2);
+$stmt->execute();
+$orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
 <!doctype html>
@@ -39,20 +46,44 @@ $customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     
     <main>
-        <?php
-            foreach ($customer as $user)
-            {
-                $id = $user['idcustomers'];
-                $fname = $user['first_name'];
-                $lname = $user['last_name'];
-                $uname = $user['username'];
-                $email = $user['email'];
-                $password = $user['password'];
-                
-                
-                echo "<p>$id, $fname, $lname, $uname, $email, $password</p>";
-            }
-        ?>
+        <p>
+            <?php
+
+            foreach ($customers as $customer)
+                {
+                    $id = $customer['idcustomers'];
+                    $fname = $customer['first_name'];
+                    $lname = $customer['last_name'];
+                    $uname = $customer['username'];
+                    $email = $customer['email'];
+                    $password = $customer['password'];
+
+
+                    echo "<p>$id, $fname, $lname, $uname, $email, $password</p>";
+                }
+
+            ?>
+        </p>
+        <p>
+            <?php
+
+            foreach ($orders as $order)
+                {
+                    $id = $order['idorders'];
+                    $userid = $order['customers_idcustomers'];
+                    $subtotal = $order['subtotal'];
+                    $taxes = $order['taxes'];
+                    $shipping = $order['shipping'];
+                    $status = $order['status'];
+                    $shipping = $order['shipping_address'];
+                    $billing = $order['billing_address'];
+
+
+                    echo "<p>$id, $userid, $subtotal, $taxes, $shipping, $status, $shipping, $billing</p>";
+                }
+
+            ?>
+        </p>
     </main>
         
     <div>
