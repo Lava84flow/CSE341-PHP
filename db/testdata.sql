@@ -24,6 +24,7 @@ VALUES (
 
 TRUNCATE TABLE anniesattic.orders RESTART IDENTITY CASCADE;
 
+
 INSERT INTO anniesattic.orders 
 VALUES (
       DEFAULT
