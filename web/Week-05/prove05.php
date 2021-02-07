@@ -8,7 +8,7 @@ $stmt = $db->prepare($query1);
 $stmt->execute();
 $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$query2 = 'SELECT * FROM anniesattic.orders';
+$query2 = 'SELECT * FROM anniesattic.orders o JOIN anniesattic.customers c ON o.customers_idcustomers = c.idcustomers';
 $stmt = $db->prepare($query2);
 $stmt->execute();
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
