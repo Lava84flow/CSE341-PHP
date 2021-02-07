@@ -72,13 +72,14 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <table style="width:100%">
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
-    <th>Age</th>
-    <th>Age</th>
-    <th>Age</th>
-    <th>Age</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Subtotal</th>
+    <th>Taxes</th>
+    <th>Shipping</th>
+    <th>Status</th>
+    <th>Shipping_address</th>
+    <th>Billing_address</th>
   </tr>
   <tr>
     <td>Jill</td>
@@ -96,11 +97,11 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $taxes = $order['taxes'];
                     $shipping = $order['shipping'];
                     $status = $order['status'];
-                    $shipping = $order['shipping_address'];
-                    $billing = $order['billing_address'];
+                    $shippinga = $order['shipping_address'];
+                    $billinga = $order['billing_address'];
 
 
-                    echo "<tr><td>$fname</td> <td>$lname</td> <td>$$subtotal</td> <td>$$taxes</td> <td>$$shipping</td> <td>$status</td> <td>$shipping</td> <td>$billing</td></tr>";
+                    echo "<tr><td>$fname</td> <td>$lname</td> <td>$subtotal</td> <td>$taxes</td> <td>$shipping</td> <td>$status</td> <td>$shippinga</td> <td>$billinga</td></tr>";
                 }
 
             ?>
