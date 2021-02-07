@@ -17,7 +17,6 @@ $customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
-    <script src="shoppingcart.js" defer></script>
 </head>
 
 <body>
