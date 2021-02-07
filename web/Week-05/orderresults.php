@@ -52,12 +52,46 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     
     <main>
+        
+        <?php
+/*
+            foreach ($customers as $customer)
+                {
+                    $id = $customer['idcustomers'];
+                    $fname = $customer['first_name'];
+                    $lname = $customer['last_name'];
+                    $uname = $customer['username'];
+                    $email = $customer['email'];
+                    $password = $customer['password'];
+
+
+                    echo "<p>$id, $fname, $lname, $uname, $email, $password</p>";
+                }
+*/
+        ?>
+        
+        <table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+    <th>Age</th>
+    <th>Age</th>
+    <th>Age</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+        
         <?php
 
             foreach ($orders as $order)
                 {
-                    $id = $order['idorders'];
-                    $userid = $order['customers_idcustomers'];
+                    $fname = $order['first_name'];
+                    $lname = $order['last_name'];
                     $subtotal = $order['subtotal'];
                     $taxes = $order['taxes'];
                     $shipping = $order['shipping'];
@@ -66,10 +100,11 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $billing = $order['billing_address'];
 
 
-                    echo "<p>$id, $userid, $subtotal, $taxes, $shipping, $status, $shipping, $billing</p>";
+                    echo "<tr><td>$fname</td> <td>$lname</td> <td>$$subtotal</td> <td>$$taxes</td> <td>$$shipping</td> <td>$status</td> <td>$shipping</td> <td>$billing</td></tr>";
                 }
 
             ?>
+        </table>
     </main>
         
     <div>
