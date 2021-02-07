@@ -3,12 +3,14 @@
 require '../shared/dbconnect.php';
 $db = get_db();
 
+/*
 $query1 = 'SELECT * FROM anniesattic.customers';
 $stmt = $db->prepare($query1);
 $stmt->execute();
 $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+*/
 
-$query2 = 'SELECT * FROM anniesattic.orders o JOIN anniesattic.customers c ON o.customers_idcustomers = c.idcustomers WHERE c.first_name = \'John\'';
+$query2 = 'SELECT * FROM anniesattic.orders o JOIN anniesattic.customers c ON o.customers_idcustomers = c.idcustomers WHERE c.first_name = \'Mary\'';
 $stmt = $db->prepare($query2);
 $stmt->execute();
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
