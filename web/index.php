@@ -50,11 +50,12 @@
             <h3>Week 03</h3>
             
             <p>
-                <a href="./Week-03/store.php">Shopping Cart</a>    
-            </p>
-            <p>
                 <a href="./Week-03/team03.php">Team Activity</a>    
             </p>
+            <p>
+                <a href="./Week-03/store.php">Shopping Cart</a>    
+            </p>
+            
             
             <h3>Week 05</h3>
                 
@@ -63,6 +64,15 @@
             </p>
             <p>
                 <a href="./Week-05/prove05.php">PHP Data Access</a>
+            </p>
+            
+            <h3>Week 06</h3>
+            
+            <p>
+                <a href="./Week-06/team06.php">Team activity</a>
+            </p>
+            <p>
+                <a href="./Week-06/prove06.php">PHP Data Update</a>
             </p>
             
         </div>
