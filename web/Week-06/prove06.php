@@ -8,34 +8,34 @@
 </head>
 
 <body>
-    
+
     <div class="nav-bar sticky clearfix">
     <nav>
         <?php include '../shared/nav.php'; ?>  
     </nav>
     </div>
-    
+
     <div id="wrapper">
-        
+
     <div>
-    <header>        
-        <?php 
+    <header>
+        <?php
             include '../shared/header.php';
-            echo '<h3>Week 05 | PHP Data Access</h3></span>';
-        ?>    
+            echo '<h3>Week 06 | PHP Data Update</h3></span>';
+        ?>
     </header>
     </div>
     
     <main>
         
     </main>
-        
+
     <div>
     <footer class="clearfix">
         <?php include '../shared/footer.php'; ?>
     </footer>
     </div>
     </div>
-    
+
 </body>
 </html>
