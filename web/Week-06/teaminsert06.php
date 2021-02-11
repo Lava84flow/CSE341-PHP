@@ -1,7 +1,19 @@
 <?php
 
+$Book = htmlspecialchars($_POST['Book']);
+$Chapter = htmlspecialchars($_POST['Chapter']);
+$Verse = htmlspecialchars($_POST['Verse']);
+$Content = htmlspecialchars($_POST['Content']);
+
 require '../shared/dbconnect.php';
 $db = get_db();
+
+$stmt = $db->prepare('INSERT INTO public.scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);');
+$stmt->bindValue(':book', $Book, PDO::PARAM_STR);
+$stmt->bindValue(':chapter', $Chapter, PDO::PARAM_INT);
+$stmt->bindValue(':verse', $Verse, PDO::PARAM_INT);
+$stmt->bindValue(':content', $Content, PDO::PARAM_STR);
+$stmt->execute();
 
 $query = 'SELECT * FROM public.scripture';
 $stmt = $db->prepare($query);
