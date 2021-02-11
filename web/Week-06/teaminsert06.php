@@ -21,7 +21,7 @@ $scripture_id = $db->lastInsertId("scripture_scripture_id_seq");
 	// Now go through each topic id in the list from the user's checkboxes
 	foreach ($topic_ids as $topic_id)
 	{
-		echo "scriptureId: $scripture_id, topicId: $topic_id";
+		//echo "scriptureId: $scripture_id, topicId: $topic_id";
 
 		// Again, first prepare the statement
 		$statement = $db->prepare('INSERT INTO topic_scripture(scripture_id, topic_id) VALUES(:scriptureId, :topicId)');
@@ -107,7 +107,7 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		// get the topics now for this scripture
 		$stmtTopics = $db->prepare('SELECT topic_name FROM topic t'
 			. ' INNER JOIN topic_scripture ts ON ts.topic_id = t.topic_id'
-			. ' WHERE ts.scripture-id = :scripture-id');
+			. ' WHERE ts.scripture_id = :scripture_id');
 
 		$stmtTopics->bindValue(':scripture_id', $row['id']);
 		$stmtTopics->execute();
