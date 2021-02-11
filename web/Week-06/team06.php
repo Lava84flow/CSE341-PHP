@@ -53,7 +53,7 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 {
                     $topic_id = $topic['topic_id'];
                     $topic_name = $topic['topic_name'];
-                    echo "<input type=\"checkbox\" name=\"Topic\" value=\"$topic_id\">$topic_name<br>";
+                    echo "<input type=\"checkbox\" name=\"Topic[]\" value=\"Topic$topic_id\">$topic_name<br>";
                 }
             ?>
             </p>

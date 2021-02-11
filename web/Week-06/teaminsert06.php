@@ -4,6 +4,7 @@ $Book = htmlspecialchars($_POST['Book']);
 $Chapter = htmlspecialchars($_POST['Chapter']);
 $Verse = htmlspecialchars($_POST['Verse']);
 $Content = htmlspecialchars($_POST['Content']);
+$topicIds = $_POST['Topics'];
 
 require '../shared/dbconnect.php';
 $db = get_db();
@@ -15,11 +16,30 @@ $stmt->bindValue(':verse', $Verse, PDO::PARAM_INT);
 $stmt->bindValue(':content', $Content, PDO::PARAM_STR);
 $stmt->execute();
 
+$scripture_id = $db->lastInsertId("scripture_scripture_id_seq");
+
+	// Now go through each topic id in the list from the user's checkboxes
+	foreach ($topic_ids as $topic_id)
+	{
+		echo "scriptureId: $scripture_id, topicId: $topic_id";
+
+		// Again, first prepare the statement
+		$statement = $db->prepare('INSERT INTO topic_scripture(scripture_id, topic_id) VALUES(:scriptureId, :topicId)');
+
+		// Then, bind the values
+		$statement->bindValue(':scriptureId', $scriptureId);
+		$statement->bindValue(':topicId', $topicId);
+
+		$statement->execute();
+	}
+
+
+/*
 $query = 'SELECT * FROM public.scripture';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+*/
 echo var_dump($_POST);
 
 ?>
@@ -57,6 +77,7 @@ echo var_dump($_POST);
          <h1>Scripture Dump</h1>
         
         <?php
+        /*
             foreach ($scripture as $script)
             {
                 $book = $script['book'];
@@ -65,6 +86,41 @@ echo var_dump($_POST);
                 $content = $script['content'];
                 echo "<p><b>$book&nbsp;$chapter:$verse</b> - \"$content\"</p>";
             }
+        */
+        ?>
+        
+        <?php
+        /*
+            // prepare the statement
+	$statement = $db->prepare('SELECT scripture_id, book, chapter, verse, content FROM public.scripture');
+	$statement->execute();
+
+	// Go through each result
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<p>';
+		echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
+		echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
+		echo '<br />';
+		echo 'Topics: ';
+
+		// get the topics now for this scripture
+		$stmtTopics = $db->prepare('SELECT name FROM topic t'
+			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
+			. ' WHERE st.scriptureId = :scriptureId');
+
+		$stmtTopics->bindValue(':scriptureId', $row['id']);
+		$stmtTopics->execute();
+
+		// Go through each topic in the result
+		while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
+		{
+			echo $topicRow['name'] . ' ';
+		}
+
+		echo '</p>';
+	}
+    */
         ?>
         <div>
         </div>
