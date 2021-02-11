@@ -47,7 +47,7 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </span>
             <br>
                 <textarea rows="10" cols="40" id="Content" name="Content"></textarea></p>
-            
+            <p>
             <?php 
                 foreach ($topics as $topic)
                 {
@@ -56,6 +56,8 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     echo "<input type=\"checkbox\" name=\"Topic\" value=\"$topic_id\">$topic_name<br>";
                 }
             ?>
+            </p>
+            <input type="submit" value="Submit">
         </form>
     </main>
 
