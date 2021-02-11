@@ -27,7 +27,16 @@
     </div>
 
     <main>
-        
+        <form action="teaminsert06.php" method="post">
+            <p><strong>Book:</strong><br><input type="text" name="Book"></p>
+            <p><strong>Chapter:</strong><br><input type="text" name="Chapter"></p>
+            <p><strong>Verse:</strong><br><input type="text" name="Verse"></p>
+            <p><span>
+                <label for="Content"><strong>Content</strong></label>
+            </span>
+            <br>
+                <textarea rows="10" cols="40" id="Content" name="Content"></textarea></p>
+        </form>
     </main>
 
     <div>
