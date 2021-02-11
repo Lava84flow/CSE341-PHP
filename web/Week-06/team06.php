@@ -1,3 +1,14 @@
+<?php
+
+require '../shared/dbconnect.php';
+$db = get_db();
+
+$query = 'SELECT topic_name FROM public.topic';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -36,6 +47,14 @@
             </span>
             <br>
                 <textarea rows="10" cols="40" id="Content" name="Content"></textarea></p>
+            <?php 
+                foreach ($topics as $topic)
+            {
+                $topic_id = $topic['topic_id'];
+                $topic_name = $topic['topic_name'];
+                echo "<input type="checkbox" name="Topic" value="$topic_id">$topic_name<br>";
+            }
+            ?>
         </form>
     </main>
 
