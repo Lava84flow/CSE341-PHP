@@ -19,6 +19,9 @@ $query = 'SELECT * FROM public.scripture';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+var_dump($_POST[])
+
 ?>
 
 <!doctype html>
@@ -45,7 +48,7 @@ $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <header>        
         <?php 
             include '../shared/header.php';
-            echo '<h3>Week 05 | Team activity</h3></span>';
+            echo '<h3>Week 06 | Team activity</h3></span>';
         ?>    
     </header>
     </div>
