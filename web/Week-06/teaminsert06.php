@@ -20,7 +20,7 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($_POST[]);
+echo var_dump($_POST[]);
 
 ?>
 
