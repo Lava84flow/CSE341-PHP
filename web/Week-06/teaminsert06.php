@@ -90,7 +90,7 @@ echo var_dump($_POST);
         ?>
         
         <?php
-        /*
+        
             // prepare the statement
 	$statement = $db->prepare('SELECT scripture_id, book, chapter, verse, content FROM public.scripture');
 	$statement->execute();
@@ -106,8 +106,8 @@ echo var_dump($_POST);
 
 		// get the topics now for this scripture
 		$stmtTopics = $db->prepare('SELECT name FROM topic t'
-			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
-			. ' WHERE st.scriptureId = :scriptureId');
+			. ' INNER JOIN topic_scripture ts ON ts.topicId = t.id'
+			. ' WHERE ts.scriptureId = :scriptureId');
 
 		$stmtTopics->bindValue(':scriptureId', $row['id']);
 		$stmtTopics->execute();
@@ -120,7 +120,7 @@ echo var_dump($_POST);
 
 		echo '</p>';
 	}
-    */
+    
         ?>
         <div>
         </div>
