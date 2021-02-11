@@ -27,8 +27,8 @@ $scripture_id = $db->lastInsertId("scripture_scripture_id_seq");
 		$statement = $db->prepare('INSERT INTO topic_scripture(scripture_id, topic_id) VALUES(:scriptureId, :topicId)');
 
 		// Then, bind the values
-		$statement->bindValue(':scriptureId', $scriptureId);
-		$statement->bindValue(':topicId', $topicId);
+		$statement->bindValue(':scriptureId', $scripture_id);
+		$statement->bindValue(':topicId', $topic_id);
 
 		$statement->execute();
 	}
