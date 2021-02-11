@@ -4,7 +4,7 @@ $Book = htmlspecialchars($_POST['Book']);
 $Chapter = htmlspecialchars($_POST['Chapter']);
 $Verse = htmlspecialchars($_POST['Verse']);
 $Content = htmlspecialchars($_POST['Content']);
-$topicIds = $_POST['Topics'];
+$topic_ids = $_POST['Topics'];
 
 require '../shared/dbconnect.php';
 $db = get_db();
