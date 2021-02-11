@@ -40,7 +40,7 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 */
-echo var_dump($_POST);
+//echo var_dump($_POST);
 
 ?>
 
@@ -105,17 +105,17 @@ echo var_dump($_POST);
 		echo 'Topics: ';
 
 		// get the topics now for this scripture
-		$stmtTopics = $db->prepare('SELECT name FROM topic t'
-			. ' INNER JOIN topic_scripture ts ON ts.topicId = t.id'
-			. ' WHERE ts.scriptureId = :scriptureId');
+		$stmtTopics = $db->prepare('SELECT topic_name FROM topic t'
+			. ' INNER JOIN topic_scripture ts ON ts.topic_id = t.topic_id'
+			. ' WHERE ts.scripture-id = :scripture-id');
 
-		$stmtTopics->bindValue(':scriptureId', $row['id']);
+		$stmtTopics->bindValue(':scripture_id', $row['id']);
 		$stmtTopics->execute();
 
 		// Go through each topic in the result
 		while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
 		{
-			echo $topicRow['name'] . ' ';
+			echo $topicRow['topic_name'] . ' ';
 		}
 
 		echo '</p>';
