@@ -15,32 +15,36 @@ $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 */
 
-// Validate First Name
-    if(empty(trim($_POST["fname"]))){
-        $fname_err = "Please enter a First Name.";     
-    } else {
-        $fname = trim($_POST["fname"]);
-    }
 
-// Validate Last Name
-    if(empty(trim($_POST["lname"]))){
-        $lname_err = "Please enter a Last Name.";     
-    } else {
-        $lname = trim($_POST["lname"]);
-    }
-
-// Validate Email
-    if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter a email.";     
-    } else {
-        $email = trim($_POST["fname"]);
-    }
 
 
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
+    
+    // Validate First Name
+    if(empty(trim($_POST["fname"]))){
+        $fname_err = "Please enter a First Name.";     
+    } else {
+        $fname = trim($_POST["fname"]);
+    }
+
+    // Validate Last Name
+    if(empty(trim($_POST["lname"]))){
+        $lname_err = "Please enter a Last Name.";     
+    } else {
+        $lname = trim($_POST["lname"]);
+    }
+
+    // Validate Email
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter a email.";     
+    } else {
+        $email = trim($_POST["fname"]);
+    }
+    
+    
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
