@@ -66,6 +66,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $usernames = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo var_dump($usernames);
         
+        if (empty($usernames)) {
+            $username = trim($_POST["username"]);
+        } else {
+            $username_err = "This username is already taken.";
+        }
+        
+        echo var_dump($username);
+        echo var_dump($username_err);
         /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
