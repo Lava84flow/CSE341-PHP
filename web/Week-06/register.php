@@ -51,17 +51,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else {
         
         // Prepare a select statement
-        $stmt = $db->prepare("SELECT idcustomers FROM anniesattic.customers WHERE username = ':username';");
+        $stmt = $db->prepare("SELECT idcustomers FROM anniesattic.customers WHERE username = :username;");
         echo var_dump($stmt);
         
-//        $param_username = trim($_POST["username"]);
-//        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+        $param_username = trim($_POST["username"]);
+        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
         
         
-//        echo var_dump($stmt);
+        echo var_dump($stmt);
         
-//        $stmt->execute();
-//        echo var_dump($stmt);
+        $stmt->execute();
+        echo var_dump($stmt);
         
         /*
         if($stmt = mysqli_prepare($link, $sql)){
