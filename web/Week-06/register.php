@@ -15,6 +15,29 @@ $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 */
 
+// Validate First Name
+    if(empty(trim($_POST["fname"]))){
+        $fname_err = "Please enter a First Name.";     
+    } else {
+        $fname = trim($_POST["fname"]);
+    }
+
+// Validate Last Name
+    if(empty(trim($_POST["lname"]))){
+        $lname_err = "Please enter a Last Name.";     
+    } else {
+        $lname = trim($_POST["lname"]);
+    }
+
+// Validate Email
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter a email.";     
+    } else {
+        $email = trim($_POST["fname"]);
+    }
+
+
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
@@ -161,13 +184,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <div class="form-group <?php echo (!empty($lname_err)) ? 'has-error' : ''; ?>">
                 <label>Last Name</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $lname; ?>">
+                <input type="text" name="lname" class="form-control" value="<?php echo $lname; ?>">
                 <span class="help-block"><?php echo $lname_err; ?></span>
             </div>
             
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $email; ?>">
+                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
                 <span class="help-block"><?php echo $email_err; ?></span>
             </div>
             
