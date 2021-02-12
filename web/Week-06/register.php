@@ -44,11 +44,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } else {
+    } /*else {*/
         
         // Prepare a select statement
-        $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
-        echo var_dump($stmt);
+ //       $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
+ //       echo var_dump($stmt);
         
 //        $param_username = trim($_POST["username"]);
 //        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
         */
-    }
+    //}
     
     // Validate password
     if(empty(trim($_POST["password"]))){
