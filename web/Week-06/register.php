@@ -135,7 +135,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $param_lname = $lname; 
         $param_username = $username;
         $param_email = $email;
-        $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+        $param_password = $password;
+        //$param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
         
         
         $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
