@@ -25,11 +25,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Prepare a select statement
         $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+         echo var_dump($stmt);
+        
+        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+        
+        $param_username = trim($_POST["username"]);
+        
+        echo var_dump($stmt);
         
         /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
             $param_username = trim($_POST["username"]);
