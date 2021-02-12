@@ -152,7 +152,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
         $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
         
- //       $stmt->execute();
+        $stmt->execute();
         
         
         /*
