@@ -132,13 +132,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         echo var_dump($stmt);
         
-//        $param_fname = $fname;
-//        $param_lname = $lname; 
-//        $param_username = $username;
-//        $param_email = $email;
-//        //$param_password = $password;
-//        $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-//        
+        $param_fname = $fname;
+        $param_lname = $lname; 
+        $param_username = $username;
+        $param_email = $email;
+        //$param_password = $password;
+        $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+        
+        echo var_dump($param_fname);
+        echo var_dump($param_lname);
+        echo var_dump($param_username);
+        echo var_dump($param_email);
+        echo var_dump($param_password);
+        
 //        
 //        $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
 //        $stmt->bindValue(':lname', $param_lname, PDO::PARAM_STR);
