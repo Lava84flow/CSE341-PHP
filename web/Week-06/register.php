@@ -25,12 +25,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Prepare a select statement
         $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
-         echo var_dump($stmt);
+        echo var_dump($stmt);
         
         $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
         
         $param_username = trim($_POST["username"]);
+        echo var_dump($stmt);
         
+        $stmt->execute();
         echo var_dump($stmt);
         
         /*
@@ -80,6 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
+    /*
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
@@ -105,10 +108,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
-    }
+        
+    }*/
     
     // Close connection
-    mysqli_close($link);
+    //mysqli_close($link);
 }
 
 ?>
