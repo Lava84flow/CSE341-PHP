@@ -27,9 +27,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
         echo var_dump($stmt);
         
+        $param_username = trim($_POST["username"]);
         $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
         
-        $param_username = trim($_POST["username"]);
+        
         echo var_dump($stmt);
         
         $stmt->execute();
