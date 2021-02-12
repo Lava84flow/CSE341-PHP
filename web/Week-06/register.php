@@ -63,6 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->execute();
         echo var_dump($stmt);
         
+        $usernames = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
         /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
