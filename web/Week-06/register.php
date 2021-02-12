@@ -15,7 +15,6 @@ $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 */
 
-/*
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
@@ -35,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-// store result 
+                // store result 
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
@@ -101,7 +100,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 }
-*/
 
 ?>
 
@@ -110,9 +108,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html>
 <head>
 <meta charset="utf-8">
-<title>Register User</title> 
-<link href="../shared/main.css" rel="stylesheet" type="text/css">
-<script src="../shared/main.js" defer></script>
+<title>PHP Data Update | Register User</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link href="../shared/main.css" rel="stylesheet" type="text/css">
+    <script src="../shared/main.js" defer></script>
 </head>
 
 <body>
@@ -129,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | Register User</h3></span>';
+            echo '<h3>Week 06 | PHP Data Update | Register User</h3></span>';
         ?>
     </header>
     </div>

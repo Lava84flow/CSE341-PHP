@@ -1,4 +1,6 @@
 <?php
+
+/*
 // Initialize the session
 session_start();
  
@@ -86,16 +88,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 }
-?>
 
+*/
+?>
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  header("location: welcome.php");
+  exit;
+}
+
+// Include config file
+//require_once '../shared/dbconnect.php';
+//$db = get_db();
+
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
+?>
 
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Login User</title> 
-<link href="../shared/main.css" rel="stylesheet" type="text/css">
-<script src="../shared/main.js" defer></script>
+<title>PHP Data Update | Login User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link href="../shared/main.css" rel="stylesheet" type="text/css">
+    <script src="../shared/main.js" defer></script>
 </head>
 
 <body>
@@ -112,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | User Login</h3></span>';
+            echo '<h3>Week 06 | PHP Data Update | User Login</h3></span>';
         ?>
     </header>
     </div>
