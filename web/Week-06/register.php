@@ -21,13 +21,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+    } else {
         
+        // Prepare a select statement
+        $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        
+        /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
             $param_username = trim($_POST["username"]);
@@ -49,13 +51,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
+        */
     }
     
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "Password must have at least 6 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
