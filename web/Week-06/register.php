@@ -6,9 +6,9 @@ require_once '../shared/dbconnect.php';
 $username = $password = $confirm_password = $fname = $lname = $email = "";
 $username_err = $password_err = $confirm_password_err = $fname_err = $lname_err = $email_err = "";
 
-/*
-$db = get_db();
 
+$db = get_db();
+/*
 $query = 'SELECT * FROM public.scripture';
 $stmt = $db->prepare($query);
 $stmt->execute();
@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else {
         
         // Prepare a select statement
-        $stmt = $db->prepare("SELECT idcustomers FROM anniesattic.customers WHERE username = ':username'");
+        $stmt = $db->prepare("SELECT idcustomers FROM anniesattic.customers WHERE username = ':username';");
         echo var_dump($stmt);
         
 //        $param_username = trim($_POST["username"]);
