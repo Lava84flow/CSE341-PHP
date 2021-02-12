@@ -15,17 +15,25 @@ $stmt->execute();
 $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 */
 
-/*
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+    } else {
         
+        // Prepare a select statement
+        $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
+         echo var_dump($stmt);
+        
+        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+        
+        $param_username = trim($_POST["username"]);
+        
+        echo var_dump($stmt);
+        
+        /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -35,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-// store result 
+                // store result 
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
@@ -50,13 +58,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
+        */
     }
     
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "Password must have at least 6 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -101,7 +110,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 }
-*/
 
 ?>
 
@@ -110,9 +118,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html>
 <head>
 <meta charset="utf-8">
-<title>Register User</title> 
-<link href="../shared/main.css" rel="stylesheet" type="text/css">
-<script src="../shared/main.js" defer></script>
+<title>PHP Data Update | Register User</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link href="../shared/main.css" rel="stylesheet" type="text/css">
+    <script src="../shared/main.js" defer></script>
 </head>
 
 <body>
@@ -129,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | Register User</h3></span>';
+            echo '<h3>Week 06 | PHP Data Update | Register User</h3></span>';
         ?>
     </header>
     </div>
