@@ -52,19 +52,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Prepare a select statement
         $stmt = $db->prepare("SELECT idcustomers FROM anniesattic.customers WHERE username = :username;");
-        echo var_dump($stmt);
+//        echo var_dump($stmt);
         
         $param_username = trim($_POST["username"]);
         $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
         
         
-        echo var_dump($stmt);
+//        echo var_dump($stmt);
         
         $stmt->execute();
-        echo var_dump($stmt);
+//        echo var_dump($stmt);
         
         $usernames = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo var_dump($usernames);
+//        echo var_dump($usernames);
         
         if (empty($usernames)) {
             $username = trim($_POST["username"]);
@@ -72,8 +72,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $username_err = "This username is already taken.";
         }
         
-        echo var_dump($username);
-        echo var_dump($username_err);
+//        echo var_dump($username);
+//        echo var_dump($username_err);
         /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -121,13 +121,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
-    /*
+    
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fname_err) && empty($lname_err) && empty($email_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
+        $query = "INSERT INTO users (first_name, last_name, username, email, password) VALUES (:fname, :lname, :username, :email, :password);";
+
+        $stmt = $db->prepare($query);
+        
+        
+        $param_fname = $fname;
+        $param_lname = $lname; 
+        $param_username = $username;
+        $param_email = $email;
+        $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+        
+        
+        $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
+        $stmt->bindValue(':lname', $param_lname, PDO::PARAM_STR);
+        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
+        $stmt->bindValue(':pasword', $param_password, PDO::PARAM_STR);
+        
+        
+        
+        /*
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
@@ -148,7 +167,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
         
-    }*/
+        */
+        
+    }
     
     // Close connection
     //mysqli_close($link);
