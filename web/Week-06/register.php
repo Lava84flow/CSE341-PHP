@@ -44,10 +44,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } /*else {*/
+    } else {
         
         // Prepare a select statement
- //       $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
+        $stmt = $db->prepare('SELECT idcustomers FROM anniesattic.customers WHERE username = :username;');
  //       echo var_dump($stmt);
         
 //        $param_username = trim($_POST["username"]);
