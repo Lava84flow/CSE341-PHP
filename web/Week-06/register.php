@@ -126,9 +126,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fname_err) && empty($lname_err) && empty($email_err)){
         
         // Prepare an insert statement
-        $query = "INSERT INTO anniesattic.customers (first_name, last_name, username, email, password) VALUES (:fname, :lname, :username, :email, :password);";
+        //$query = "INSERT INTO anniesattic.customers (first_name, last_name, username, email, password) VALUES (:fname, :lname, :username, :email, :password);";
 
-        $stmt = $db->prepare($query);
+        $stmt = $db->prepare("INSERT INTO anniesattic.customers (first_name, last_name, username, email, password) VALUES (:fname, :lname, :username, :email, :password);");
         
         
         $param_fname = $fname;
