@@ -145,14 +145,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo var_dump($param_email);
         echo var_dump($param_password);
         
-//        
+        
         $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
-//        $stmt->bindValue(':lname', $param_lname, PDO::PARAM_STR);
-//        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
-//        $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
-//        $stmt->bindValue(':pasword', $param_password, PDO::PARAM_STR);
-//        
-//        $stmt->execute();
+        $stmt->bindValue(':lname', $param_lname, PDO::PARAM_STR);
+        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
+        $stmt->bindValue(':pasword', $param_password, PDO::PARAM_STR);
+        
+        $stmt->execute();
         
         /*
         if($stmt = mysqli_prepare($link, $sql)){

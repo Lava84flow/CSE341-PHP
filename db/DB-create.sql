@@ -51,7 +51,7 @@ CREATE TABLE anniesattic.customers (
     last_name character varying(50) NOT NULL,
     username character varying(50) NOT NULL,
     email character varying(50) NOT NULL,
-    password character varying(50) NOT NULL
+    password character varying(100) NOT NULL
 );
 
 
