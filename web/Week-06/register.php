@@ -130,22 +130,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $stmt = $db->prepare("INSERT INTO anniesattic.customers (first_name, last_name, username, email, password) VALUES (:fname, :lname, :username, :email, :password);");
         
+        echo var_dump($stmt);
         
-        $param_fname = $fname;
-        $param_lname = $lname; 
-        $param_username = $username;
-        $param_email = $email;
-        $param_password = $password;
-        //$param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-        
-        
-        $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
-        $stmt->bindValue(':lname', $param_lname, PDO::PARAM_STR);
-        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
-        $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
-        $stmt->bindValue(':pasword', $param_password, PDO::PARAM_STR);
-        
-        $stmt->execute();
+//        $param_fname = $fname;
+//        $param_lname = $lname; 
+//        $param_username = $username;
+//        $param_email = $email;
+//        //$param_password = $password;
+//        $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+//        
+//        
+//        $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
+//        $stmt->bindValue(':lname', $param_lname, PDO::PARAM_STR);
+//        $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+//        $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
+//        $stmt->bindValue(':pasword', $param_password, PDO::PARAM_STR);
+//        
+//        $stmt->execute();
         
         /*
         if($stmt = mysqli_prepare($link, $sql)){
@@ -251,7 +252,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
+                <!--<input type="reset" class="btn btn-default" value="Reset">-->
             </div>
             
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
