@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (empty($emails)) {
             $email = trim($_POST["email"]);
         } else {
-            $username_err = "This email is already taken.";
+            $email_err = "This email is already taken.";
         }
 
     }
