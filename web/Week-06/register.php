@@ -41,7 +41,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";     
     } else {
-        $email = trim($_POST["email"]);
+        
+        // Prepare a select statement
+        $stmt = $db->prepare("SELECT idcustomers FROM anniesattic.customers WHERE email = :email;");
+//        echo var_dump($stmt);
+        
+        $param_email = trim($_POST["email"]);
+        $stmt->bindValue(':email', $param_email, PDO::PARAM_STR);
+        
+        
+//        echo var_dump($stmt);
+        
+        $stmt->execute();
+//        echo var_dump($stmt);
+        
+        $emails = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//        echo var_dump($usernames);
+        
+        if (empty($emails)) {
+            $email = trim($_POST["email"]);
+        } else {
+            $username_err = "This email is already taken.";
+        }
+
     }
     
     
