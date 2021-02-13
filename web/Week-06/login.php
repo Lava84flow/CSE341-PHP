@@ -45,26 +45,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //var_dump($stmt);
         
         $stmt->execute();
-        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         //var_dump($user);
         
         //mysqli_stmt_store_result($user);
                 
-        echo var_dump($user);
+        echo var_dump($users);
         
                 // Check if username exists, if yes then verify password
-                if(count($user) == 1){                    
+                if(count($users) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($user, $idcustomers, $first_name, $last_name, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($user)){
+                    foreach ($users as $user)
+                    {
+                        
+                        $id = $user['idcustomers'];
+                        $first_name = $user['first_name'];
+                        $last_name = $user['last_name'];
+                        $username = $user['username'];
+                        $hashed_password = $user['password'];
+                    }
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $idcustomers;
+                            $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION["fname"] = $first_name;
                             $_SESSION["lname"] = $last_name;
@@ -77,7 +84,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
-                    }
                 } else {
                     // Display an error message if username doesn't exist
                     $username_err = "No account found with that username.";
