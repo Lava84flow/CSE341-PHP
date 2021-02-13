@@ -152,7 +152,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $stmt = $db->prepare("INSERT INTO anniesattic.customers (first_name, last_name, username, email, password) VALUES (:fname, :lname, :username, :email, :password);");
         
-        echo var_dump($stmt);
+//        echo var_dump($stmt);
         
         $param_fname = $fname;
         $param_lname = $lname; 
@@ -161,11 +161,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //$param_password = $password;
         $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
         
-        echo var_dump($param_fname);
-        echo var_dump($param_lname);
-        echo var_dump($param_username);
-        echo var_dump($param_email);
-        echo var_dump($param_password);
+//        echo var_dump($param_fname);
+//        echo var_dump($param_lname);
+//        echo var_dump($param_username);
+//        echo var_dump($param_email);
+//        echo var_dump($param_password);
         
         
         $stmt->bindValue(':fname', $param_fname, PDO::PARAM_STR);
