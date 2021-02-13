@@ -34,11 +34,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     if(empty($username_err) && empty($password_err)){
-        $query = 'SELECT idcustomers, first_name, last_name, username, password FROM anniesattic.customers WHERE username = :username';
+        $query = 'SELECT idcustomers, first_name, last_name, username, password FROM anniesattic.customers WHERE username = :username;';
         $stmt = $db->prepare($query);
         
         $param_username = $username;
         $stmt->bindValue(':username', $param_username, PDO::PARAM_STR);
+        
+        var_dump($stmt);
         
         $stmt->execute();
         $scripture = $stmt->fetchAll(PDO::FETCH_ASSOC);
