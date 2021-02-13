@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         //$query = 'SELECT idcustomers, first_name, last_name, username, password FROM anniesattic.customers WHERE username = :username;';
         
-        $query = 'UPDATE anniesattic.customers SET password = :password WHERE customers.idcusotmers = :id;';
+        $query = 'UPDATE anniesattic.customers SET password = :password WHERE idcustomers = :id;';
         $stmt = $db->prepare($query);
         
         var_dump($query);
