@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         mysqli_stmt_store_result($user);
                 
-        echo var_dump($stmt);
+        echo var_dump($user);
         
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
