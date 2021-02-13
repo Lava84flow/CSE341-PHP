@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         //var_dump($user);
         
-        mysqli_stmt_store_result($stmt);
+        mysqli_stmt_store_result($user);
                 
         echo var_dump($stmt);
         
