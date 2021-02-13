@@ -69,11 +69,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["fname"] = $first_name;
                             $_SESSION["lname"] = $last_name;
                             
-                            //echo var_dump($_SESSION[]);
+                            echo var_dump($_SESSION[""]);
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
-                        } else{
+                        } else {
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
