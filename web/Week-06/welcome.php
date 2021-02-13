@@ -13,9 +13,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <html>
 <head>
 <meta charset="utf-8">
-<title>PHP Data Update | Welcome</title> 
-<link href="../shared/main.css" rel="stylesheet" type="text/css">
-<script src="../shared/main.js" defer></script>
+<title>PHP Data Update | Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link href="../shared/main.css" rel="stylesheet" type="text/css">
+    <script src="../shared/main.js" defer></script>
 </head>
 
 <body>
