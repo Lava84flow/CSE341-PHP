@@ -40,7 +40,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     
     <main>
         <div class="page-header">
-            <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+            <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["fname"]); ?> <?php echo htmlspecialchars($_SESSION["lname"]); ?></b>. Welcome to our site.</h1>
+            <br />
+            <h2>Your username is: <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h2>
         </div>
         <p>
             <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
