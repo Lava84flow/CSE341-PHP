@@ -116,6 +116,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 */
 ?>
 <?php
+
+/*
 // Initialize the session
 session_start();
 
@@ -132,6 +134,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
+
+*/
 ?>
 
 <!DOCTYPE HTML>
