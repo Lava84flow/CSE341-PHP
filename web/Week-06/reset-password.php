@@ -53,6 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $query = 'UPDATE anniesattic.customers SET password = :password WHERE idcusotmers = :id;';
         $stmt = $db->prepare($query);
         
+        var_dump($query);
+        
         $param_password = password_hash($new_password, PASSWORD_DEFAULT);
         $param_id = $_SESSION["id"];
         
