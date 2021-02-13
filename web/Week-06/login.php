@@ -12,6 +12,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 // Include config file
 require_once '../shared/dbconnect.php';
+
+$db = get_db();
  
 // Define variables and initialize with empty values
 $username = $password = "";
