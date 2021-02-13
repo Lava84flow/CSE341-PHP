@@ -49,15 +49,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         //var_dump($user);
         
-        mysqli_stmt_store_result($user);
+        //mysqli_stmt_store_result($user);
                 
         echo var_dump($user);
         
                 // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                if(mysqli_stmt_num_rows($user) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $idcustomers, $first_name, $last_name, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
+                    mysqli_stmt_bind_result($user, $idcustomers, $first_name, $last_name, $username, $hashed_password);
+                    if(mysqli_stmt_fetch($user)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
