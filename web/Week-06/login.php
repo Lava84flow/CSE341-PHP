@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         //mysqli_stmt_store_result($user);
                 
-        echo var_dump($users);
+        //echo var_dump($users);
         
                 // Check if username exists, if yes then verify password
                 if(count($users) == 1){                    
@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["fname"] = $first_name;
                             $_SESSION["lname"] = $last_name;
                             
-                            echo var_dump($_SESSION[""]);
+                            //echo var_dump($_SESSION[""]);
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
