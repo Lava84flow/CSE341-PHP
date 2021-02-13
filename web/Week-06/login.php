@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //var_dump($stmt);
         
         $stmt->execute();
-        //$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         //var_dump($user);
         
