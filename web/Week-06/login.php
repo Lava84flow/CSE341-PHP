@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["fname"] = $first_name;
                             $_SESSION["lname"] = $last_name;
                             
-                            
+                            var_dump($_SESSION[]);
                             // Redirect user to welcome page
                             header("location: welcome.php");
                         } else{
