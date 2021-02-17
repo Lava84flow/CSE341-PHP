@@ -75,6 +75,15 @@
                 <a href="./Week-06/prove06.php">PHP Data Update</a>
             </p>
             
+            <h3>Week 07</h3>
+            
+            <p>
+                <a href="./Week-07/team07.php">Team activity</a>
+            </p>
+            <p>
+                <a href="./Week-07/prove07.php">Project 1</a>
+            </p>
+            
         </div>
     </main>
         
