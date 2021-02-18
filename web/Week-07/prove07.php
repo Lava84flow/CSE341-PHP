@@ -1,7 +1,7 @@
 <?php
 
-    // Initialize the session
-    session_start();
+// Initialize the session
+session_start();
 
 ?>
 
@@ -39,7 +39,7 @@
         <?php 
             // Check if the user is already logged in, if yes then redirect him to welcome page
             if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-                
+                include 'welcome.php'; 
             } else {
                 echo '
                     <a href="register.php">New User</a>
@@ -48,10 +48,6 @@
                 ';
             }
         ?>
-        
-        <a href="register.php">New User</a>
-        <br>
-        <a href="login.php">Login</a>
     </main>
 
     <div>
