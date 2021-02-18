@@ -1,3 +1,10 @@
+<?php
+
+    // Initialize the session
+    session_start();
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,6 +35,20 @@
     </div>
     
     <main>
+        
+        <?php 
+            // Check if the user is already logged in, if yes then redirect him to welcome page
+            if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                
+            } else {
+                echo '
+                    <a href="register.php">New User</a>
+                    <br>
+                    <a href="login.php">Login</a>
+                ';
+            }
+        ?>
+        
         <a href="register.php">New User</a>
         <br>
         <a href="login.php">Login</a>
