@@ -221,6 +221,7 @@ table, th, td {
 }
 
 .project-button {
+    border-radius: 0.25em;
     display: inline-block;
     background-color: darkred;
     padding: 1em;
