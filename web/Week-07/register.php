@@ -233,7 +233,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | Project 1 | Register User</h3></span>';
+            echo '<h3>Week 07 | Project 1 | Register User</h3></span>';
         ?>
     </header>
     </div>

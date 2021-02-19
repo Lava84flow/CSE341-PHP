@@ -215,7 +215,7 @@ $username_err = $password_err = "";
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | Project 1 | User Login</h3></span>';
+            echo '<h3>Week 07 | Project 1 | User Login</h3></span>';
         ?>
     </header>
     </div>
