@@ -6,7 +6,8 @@
 
 <div style="padding-top: 0.5em; width: 100%; margin: auto;">
     <h3>What would you like to do today?</h3>
-    
+    <a href="addresses.php" class="project-button">View Saved Addresses</a>
+    <a href="payment.php" class="project-button">View Saved Payment Info</a>
 </div>
     
 <div class="centered-button" style="padding-top: 0.5em; width: 100%; margin: auto;">    
