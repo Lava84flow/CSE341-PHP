@@ -222,6 +222,7 @@ table, th, td {
 
 .project-button {
     display: inline-block;
+    background-color: darkred;
     padding: 1em;
     margin: 0.5em;
     font-size: 14pt; 
