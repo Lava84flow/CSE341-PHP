@@ -195,7 +195,7 @@ $username_err = $password_err = "";
 <html>
 <head>
 <meta charset="utf-8">
-<title>PHP Data Update | Login User</title>
+<title>Project 1 | Login User</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
@@ -215,7 +215,7 @@ $username_err = $password_err = "";
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | PHP Data Update | User Login</h3></span>';
+            echo '<h3>Week 06 | Project 1 | User Login</h3></span>';
         ?>
     </header>
     </div>

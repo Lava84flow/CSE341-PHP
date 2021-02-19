@@ -213,7 +213,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html>
 <head>
 <meta charset="utf-8">
-<title>PHP Data Update | Register User</title> 
+<title>Project 1 | Register User</title> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
@@ -233,7 +233,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <header>
         <?php
             include '../shared/header.php';
-            echo '<h3>Week 06 | PHP Data Update | Register User</h3></span>';
+            echo '<h3>Week 06 | Project 1 | Register User</h3></span>';
         ?>
     </header>
     </div>
