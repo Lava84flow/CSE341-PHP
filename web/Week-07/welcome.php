@@ -4,7 +4,7 @@
     <h2>Your username is: <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h2>
 </div>
 
-<div style="padding-top: 0.5em; width: 100%; margin: auto;">
+<div style="padding-top: 0.5em; width: 100%; margin: auto; text-align: center;">
     <h3>What would you like to do today?</h3>
     <a href="addresses.php" class="project-button centered-button">View Saved Addresses</a>
     <br />
