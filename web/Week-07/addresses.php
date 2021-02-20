@@ -61,13 +61,29 @@ $db = get_db();
         
         <?php 
             if (!empty($addresses)) {
+                
+                echo '
+                    <table style="width:100%">
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Subtotal</th>
+                        <th>Taxes</th>
+                        <th>Shipping</th>
+                        <th>Status</th>
+                        <th>Shipping Address</th>
+                        <th>Billing Address</th>
+                      </tr>
+                ';
+                
+                
                 foreach ($addresses as $address) {
                     $type =             $address['address_type'];
                     $address_line1 =    $address['address_line1'];
-                    $address_line2 =         $address['address_line2'];
-                    $city =            $address['city'];
-                    $state =         $address['state'];
-                    $zipcode =           $address['zipcode'];
+                    $address_line2 =    $address['address_line2'];
+                    $city =             $address['city'];
+                    $state =            $address['state'];
+                    $zipcode =          $address['zipcode'];
                     
                     
                     
