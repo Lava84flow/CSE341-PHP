@@ -65,14 +65,12 @@ $db = get_db();
                 echo '
                     <table style="width:100%">
                       <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Subtotal</th>
-                        <th>Taxes</th>
-                        <th>Shipping</th>
-                        <th>Status</th>
-                        <th>Shipping Address</th>
-                        <th>Billing Address</th>
+                        <th>Address Type</th>
+                        <th>Line 1</th>
+                        <th>Line 2</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zipcode</th>
                       </tr>
                 ';
                 
