@@ -86,9 +86,10 @@ $db = get_db();
                     
                     
                     echo "<tr><td>$type</td> <td>$address_line1</td> <td>$address_line2</td> <td>$city</td> <td>$state</td> <td>$zipcode</td></tr>";
-                    
-                    echo '</table>';
                 }
+                
+                echo '</table>';
+                
             } else {
                 echo 'You do not have any saved addresses';
             }
