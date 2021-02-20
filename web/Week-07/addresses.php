@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 //        echo var_dump($stmt);
         
         $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo var_dump($addresses);
+        //echo var_dump($addresses);
         
 ?>
 
@@ -93,7 +93,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     
                     
                     
-                    echo "<tr><td>$type</td> <td>$address_line1</td> <td>$address_line2</td> <td>$city</td> <td>$state</td> <td>$zipcode</td> <td><a href=\"delete-address.php?id=$address_id\">Delete</a></td></tr>";
+                    echo "<tr><td>$type</td> <td>$address_line1</td> <td>$address_line2</td> <td>$city</td> <td>$state</td> <td>$zipcode</td> <td><a href=\"delete-address.php?ID=$address_id\">Delete</a></td></tr>";
                 }
                 
                 echo '</table>';
