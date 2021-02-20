@@ -76,8 +76,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $param_zipcode = $zipcode;
         $param_type = $type;
         
-        var_dump($type);
-        var_dump($param_type);
+        //var_dump($type);
+        //var_dump($param_type);
         
         $stmt->bindValue(':customers_idcustomers', $param_id, PDO::PARAM_INT);
         $stmt->bindValue(':address_type', $param_type, PDO::PARAM_STR);
@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         $stmt->execute();
         
-        
+        header("location: addresses.php");
     }
     
 }
