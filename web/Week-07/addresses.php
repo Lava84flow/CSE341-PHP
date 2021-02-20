@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 //        echo var_dump($stmt);
         
         $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //echo var_dump($addresses);
+        echo var_dump($addresses);
         
 ?>
 
