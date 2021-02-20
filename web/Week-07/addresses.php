@@ -8,8 +8,14 @@ require_once '../shared/dbconnect.php';
 
 $db = get_db();
 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  header("location: prove07.php");
+  exit;
+}
+
 // Prepare a select statement
-        $query = 'SELECT address_type, address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
+        $query = 'SELECT idaddresses, address_type, address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
         $stmt = $db->prepare($query);
 //        echo var_dump($stmt);
         
@@ -58,7 +64,7 @@ $db = get_db();
     
     <main>
         
-        <div>
+        <div style="width: 90%;">
         <?php 
             if (!empty($addresses)) {
                 
@@ -71,11 +77,13 @@ $db = get_db();
                         <th>City</th>
                         <th>State</th>
                         <th>Zipcode</th>
+                        <th>Delete Address</th>
                       </tr>
                 ';
                 
                 
                 foreach ($addresses as $address) {
+                    $address_id =       $address['idaddresses'];
                     $type =             $address['address_type'];
                     $address_line1 =    $address['address_line1'];
                     $address_line2 =    $address['address_line2'];
@@ -85,7 +93,7 @@ $db = get_db();
                     
                     
                     
-                    echo "<tr><td>$type</td> <td>$address_line1</td> <td>$address_line2</td> <td>$city</td> <td>$state</td> <td>$zipcode</td></tr>";
+                    echo "<tr><td>$type</td> <td>$address_line1</td> <td>$address_line2</td> <td>$city</td> <td>$state</td> <td>$zipcode</td> <td><a href=\"delete-address.php?id=$address_id\">Delete</a></td></tr>";
                 }
                 
                 echo '</table>';
@@ -94,8 +102,12 @@ $db = get_db();
                 echo 'You do not have any saved addresses';
             }
         ?>
-            
         </div>
+        
+        <div>
+            <a href="add-addresses.php" class="project-button centered-button">Add Addresses</a>
+        </div>
+        
     </main>
 
     <div>

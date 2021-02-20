@@ -8,8 +8,8 @@
     <h3>What would you like to do today?</h3>
     <a href="addresses.php" class="project-button centered-button">View Saved Addresses</a>
     <br />
-    <a href="payments.php" class="project-button centered-button">View Saved Payment Info</a>
-    <br />
+    <!--<a href="payments.php" class="project-button centered-button">View Saved Payment Info</a>
+    <br />-->
     <a href="store.php" class="project-button centered-button">Go Shopping</a>
 </div>
     
