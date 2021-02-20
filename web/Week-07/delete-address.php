@@ -13,10 +13,12 @@ if(isset($_GET['ID'])){
     $stmt = $db->prepare($query_delete);
     
     $addressid = $_GET['ID'];
-    $stmt->bindValue(':addressid', $$addressid, PDO::PARAM_STR);
+    $stmt->bindValue(':addressid', $$addressid, PDO::PARAM_INT);
     
     $stmt->execute();
  }
+
+Blargh;
 
 header("location: addresses.php");
 exit();
