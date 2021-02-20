@@ -3,6 +3,33 @@
 // Initialize the session
 session_start();
 
+// Include config file
+require_once '../shared/dbconnect.php';
+
+
+// Prepare a select statement
+        $query = 'SELECT address_type, address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
+        $stmt = $db->prepare($query);
+//        echo var_dump($stmt);
+        
+        $param_id = $_SESSION["id"];
+        $stmt->bindValue(':customerid', $param_id, PDO::PARAM_STR);
+        
+        
+//        echo var_dump($stmt);
+        
+        $stmt->execute();
+//        echo var_dump($stmt);
+        
+        $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo var_dump($addresses);
+        /*
+        if (empty($addresses)) {
+            $username = trim($_POST["username"]);
+        } else {
+            $username_err = "This username is already taken.";
+        }
+        */
 ?>
 
 <!DOCTYPE HTML>
