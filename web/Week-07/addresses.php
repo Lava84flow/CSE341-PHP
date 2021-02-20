@@ -8,10 +8,10 @@ require_once '../shared/dbconnect.php';
 
 $db = get_db();
 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  header("location: prove07.php");
-  exit;
+// Check if the user is logged in, otherwise redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: prove07.php");
+    exit;
 }
 
 // Prepare a select statement
