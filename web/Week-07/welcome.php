@@ -11,6 +11,7 @@
     <!--<a href="payments.php" class="project-button centered-button">View Saved Payment Info</a>
     <br />-->
     <a href="store.php" class="project-button centered-button">Go Shopping</a>
+    <br />
     <a href="past-orders.php" class="project-button centered-button">View Past Orders</a>
 </div>
     
