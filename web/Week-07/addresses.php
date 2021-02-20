@@ -6,6 +6,7 @@ session_start();
 // Include config file
 require_once '../shared/dbconnect.php';
 
+$db = get_db();
 
 // Prepare a select statement
         $query = 'SELECT address_type, address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
