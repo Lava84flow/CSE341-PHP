@@ -16,12 +16,15 @@ if(isset($_GET['ID'])){
     $stmt->bindValue(':addressid', $$addressid, PDO::PARAM_INT);
     
     $stmt->execute();
+    
+    
  }
 
-Blargh;
+echo Blargh;
 
-header("location: addresses.php");
-exit();
-
+//header("location: addresses.php");
+//exit();
 
 ?>
+
+<a href="addresses.php">Back To Addresses</a>
