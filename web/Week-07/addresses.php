@@ -106,6 +106,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         
         <div>
             <a href="add-addresses.php" class="project-button centered-button">Add Addresses</a>
+            <a href="prove07.php" class="project-button centered-button">Go Back</a>
         </div>
         
     </main>
