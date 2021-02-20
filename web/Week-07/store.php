@@ -1,8 +1,16 @@
 <?php
 
 // Initialize the session
-session_start();
+//session_start();
 
+require '../shared/dbconnect.php';
+$db = get_db();
+
+$query = 'SELECT * FROM anniesattic.products;';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+var_dump($products);
 ?>
 
 <!DOCTYPE HTML>
@@ -35,6 +43,20 @@ session_start();
     </div>
     
     <main>
+        
+        <form action="" method="post" class="store">
+            
+        <div class="store-item">
+            
+            <h3>Red Bull</h3>
+            <span><strong>$20.00</strong></span> 
+            
+            <img class="thumb" src="img/f05c82111541689.60041b9f63641-thumb.png">
+            <div class="centered-button">
+                <button type="submit" name="AddCart" value="bull">Add To Cart</button>
+            </div>
+        </div>
+        
         <?php 
             
         ?>
