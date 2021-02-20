@@ -24,13 +24,7 @@ $db = get_db();
         
         $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo var_dump($addresses);
-        /*
-        if (empty($addresses)) {
-            $username = trim($_POST["username"]);
-        } else {
-            $username_err = "This username is already taken.";
-        }
-        */
+        
 ?>
 
 <!DOCTYPE HTML>
@@ -63,8 +57,31 @@ $db = get_db();
     </div>
     
     <main>
+        
+        
         <?php 
-            
+            if (empty($addresses)) {
+                foreach ($addresses as $address) {
+                    $type =             $address['address_type'];
+                    $address_line1 =    $address['address_line1'];
+                    $address_line2 =         $address['address_line2'];
+                    $city =            $address['city'];
+                    $state =         $address['state'];
+                    $zipcode =           $address['zipcode'];
+                    
+                    
+                    
+                    echo "<tr><td>$type</td> <td>$address_line1</td> <td>$address_line2</td> <td>$city</td> <td>$state</td> <td>$zipcode</td></tr>";
+                }
+            } else {
+                echo 'You do not have any saved addresses';
+            }
+                
+                
+                
+                
+                
+                
         ?>
     </main>
 
