@@ -60,7 +60,7 @@ $db = get_db();
         
         
         <?php 
-            if (empty($addresses)) {
+            if (!empty($addresses)) {
                 foreach ($addresses as $address) {
                     $type =             $address['address_type'];
                     $address_line1 =    $address['address_line1'];
