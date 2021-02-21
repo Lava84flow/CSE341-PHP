@@ -150,7 +150,9 @@ function getproduct($id) {
                 <?php echo $shipping_address["city"] . ', ' . $shipping_address["state"] . ' ' . $shipping_address["zipcode"] ?> 
             </p>
         </div>
-        
+        <div style="text-align: center;">
+            <a href="prove07.php" class="project-button centered-button">Back to Main Menu</a>
+        </div>
     </main>
     
     <div>
