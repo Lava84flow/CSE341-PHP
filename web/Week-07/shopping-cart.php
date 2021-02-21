@@ -129,7 +129,7 @@ if (isset($_POST['RemoveCart'])) {
         
             <span><strong>Subtotal: $<?php 
                 $_SESSION["price_total"] = number_format((float)array_sum($price_total), 2, '.', '');
-                echo $_SESSION["price_total"]; 
+                echo $_SESSION["price_subtotal"]; 
             ?></strong></span>
             
         </form>

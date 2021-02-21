@@ -57,7 +57,7 @@ $shipping_err = $billing_err = '';
         
         <div style="text-align: center">
         
-            <span><h3>Subtotal: $<?php echo $_SESSION["price_total"]; ?></h3></span>
+            <span><h3>Subtotal: $<?php echo $_SESSION["price_subtotal"]; ?></h3></span>
         
         </div>
         

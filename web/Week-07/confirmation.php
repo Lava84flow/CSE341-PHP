@@ -2,12 +2,30 @@
 // Start the session
 session_start();
 
-$query = 'SELECT idaddresses, address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
+require '../shared/dbconnect.php';
+//$db = get_db();
+
+
+
+
+//$_SESSION["price_total"];
+
+    
+    
+    $price_total = '';
+
+
+
+function getaddress($id) {
+    
+    $db = get_db();
+    
+    $query = 'SELECT address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE idaddresses = :addressid;';
         $stmt = $db->prepare($query);
 //        echo var_dump($stmt);
         
-        $param_id = $_SESSION["id"];
-        $stmt->bindValue(':customerid', $param_id, PDO::PARAM_STR);
+        $param_id = $id;
+        $stmt->bindValue(':addressid', $param_id, PDO::PARAM_STR);
         
         
 //        echo var_dump($stmt);
@@ -16,10 +34,36 @@ $query = 'SELECT idaddresses, address_line1, address_line2, city, state, zipcode
 //        echo var_dump($stmt);
         
         $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $address = $addresses['0'];
         //echo var_dump($addresses);
+    
+    return $address;
+    
+}
 
 
 
+function getproduct($id) {
+    
+    $db = get_db();
+    
+    $query =    'SELECT title, price 
+                FROM anniesattic.products
+                WHERE idproducts = :id;';
+
+    $stmt = $db->prepare($query);
+    
+    $param_id = $id;
+    $stmt->bindValue(':id', $param_id, PDO::PARAM_INT);    
+    
+    $stmt->execute();
+    $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    $productout = $product['0'];
+    
+    return $productout;
+}
 
 
 
@@ -63,34 +107,36 @@ $query = 'SELECT idaddresses, address_line1, address_line2, city, state, zipcode
                 
                 <br>
                 <?php
-                    if(isset($_SESSION["shopping_cart"]))
-                        {
-                            foreach($_SESSION["shopping_cart"] as $id)
-                            {
-                                echo $title_map[$id]. ' for ' . $price_map[$id] . '<br>' ;
+                    if(isset($_SESSION["shopping_cart"])) {
+                            foreach($_SESSION["shopping_cart"] as $id) {
+                                $current_product = getproduct($id);
+                                echo $current_product["title"]. ' for ' . $current_product["price"] . '<br>' ;
                             }
                         }
                 ?>
             </p>
             
             <p>
-                Your Total is: $<?php echo number_format((float)array_sum($_SESSION["price"]), 2, '.', ''); ?>
+                Your Total is: $<?php echo $price_total; ?>
             </p>
+            
+            
             
             <p>
                 Your order will be sent to:
+                <?php $shipping_address = getaddress($_POST['shipping-address']) ?>
                 
                 <br>
                 
-                <?php echo $firstName . ' ' . $lastName ?>
+                <?php echo htmlspecialchars($_SESSION["fname"]) . ' ' . htmlspecialchars($_SESSION["lname"]) ?>
                 
                 <br>
                 
-                <?php echo $addressLine1 . ' ' . $addressLine2 ?>
+                <?php echo $shipping_address["address_line1"] . ' ' . $shipping_address["address_line2"] ?>
                 
                 <br>
                 
-                <?php echo $city . ', ' . $state . ' ' . $zip ?> 
+                <?php echo $shipping_address["city"] . ', ' . $shipping_address["state"] . ' ' . $shipping_address["zipcode"] ?> 
             </p>
         </div>
         
