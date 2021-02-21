@@ -2,6 +2,18 @@
 // Start the session
 session_start();
 
+require '../shared/dbconnect.php';
+$db = get_db();
+
+$query =    'SELECT p.idproducts, p.title, mt.media_name, p.dimensions, p.price, p.description, p.img_url 
+            FROM anniesattic.products p JOIN anniesattic.media_type mt 
+            ON p.media_type_idmedia_type = mt.idmedia_type
+            ORDER BY p.idproducts;';
+
+$stmt = $db->prepare($query);
+$stmt->execute();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!doctype html>
@@ -47,14 +59,15 @@ session_start();
         
         <div class="centered-button" style="padding-top: 1em">
             <form action="confirmation.php" method="post" class="submit">
-                <div style="text-align: left">
                 
-                    
-                    
-                </div>
+                <p>What address would you like to use?</p>
+                
+                
+                
+                <p>Don't have any saved addresses? <a href="add-addresses.php">Click here</a> to add one.</p>
                 
                 <div style="padding: 1em">
-                <button class="rounded" name="purchase" type="submit">Purchase</button>
+                    <button class="rounded" name="purchase" type="submit">Purchase</button>
                 </div>
             </form>
         </div>
