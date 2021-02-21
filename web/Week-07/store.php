@@ -7,7 +7,10 @@ require '../shared/dbconnect.php';
 $db = get_db();
 
 $query =    'SELECT p.idproducts, p.title, mt.media_name, p.dimensions, p.price, p.description, p.img_url 
-            FROM anniesattic.products p JOIN anniesattic.media_type mt ON p.media_type_idmedia_type = mt.idmedia_type;';
+            FROM anniesattic.products p JOIN anniesattic.media_type mt 
+            ON p.media_type_idmedia_type = mt.idmedia_type
+            ORDER BY p.idproducts;';
+
 $stmt = $db->prepare($query);
 $stmt->execute();
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -61,11 +64,14 @@ var_dump($products);
         <?php 
             foreach ($products as $product)
             {
-                $productid = $script['book'];
-                $media_type_idmedia_type = $script['chapter'];
-                $verse = $script['verse'];
-                $content = $script['content'];
-                echo "<p><b>$book&nbsp;$chapter:$verse</b> - \"$content\"</p>";
+                $productid =    $product['idproducts'];
+                $title =        $product['title'];
+                $media_name =   $product['media_name'];
+                $dimensions =   $product['dimensions'];
+                $price =        $product['price'];
+                $description =  $product['description'];
+                $img_url =      $product['img_url'];
+                echo "<p>$title, $media_name, $dimensions, $price, $description, <img class=\"thumb\" src=\"$img_url\"</p>";
             }
         ?>
     </main>
