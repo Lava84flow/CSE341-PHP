@@ -29,6 +29,8 @@ if (isset($_SESSION["shopping_cart"])) {
     $_SESSION["price"] = [];
 }
 
+
+
 //$_SESSION["shopping_cart"] = []/* = $shopping_cart */;
 
 /*if (isset($_POST['AddCart'])) {
