@@ -42,7 +42,7 @@ session_start();
         
         <div style="text-align: center">
         
-            <span><h3>Subtotal: $<?php echo number_format((float)array_sum($_SESSION["price"]), 2, '.', ''); ?></h3></span>
+            <span><h3>Subtotal: $<?php echo $_SESSION["price_total"]; ?></h3></span>
         
         </div>
         
@@ -53,40 +53,6 @@ session_start();
                 <label>First Name</label><br>
                 <input type="text" name="first_name">
                 </div>
-                    
-                <div style="width: 100%"> 
-                <label>Last Name</label><br>
-                <input type="text" name="last_name">
-                    </div>
-                    
-                    <br>
-                    
-                    <div style="width: 100%">
-                        <label>Address Line 1</label><br>
-                        <input type="text" name="line1">
-                    </div>
-                    
-                    <div style="width: 100%">
-                        <label>Address Line 2</label><br>
-                        <input type="text" name="line2">
-                    </div>
-                    
-                    <br>
-                    
-                    <div style="width: 100%">
-                        <label>City</label><br>
-                        <input type="text" name="city">
-                    </div>
-                    
-                    <div style="width: 100%">
-                        <label>State</label><br>
-                        <input type="text" name="state">
-                    </div>
-                    
-                    <div style="width: 100%">
-                        <label>Zip Code</label><br>
-                        <input type="text" name="zip">
-                    </div>
                     
                 </div>
                 
