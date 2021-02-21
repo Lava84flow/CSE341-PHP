@@ -13,7 +13,7 @@ require '../shared/dbconnect.php';
     
 $subtotal = $_SESSION["price_subtotal"];
 
-$taxes = $subtotal * 0.05;
+$taxes = floatval($subtotal) * 0.05;
 
 $shipping = 10.00;
     
