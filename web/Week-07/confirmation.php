@@ -121,6 +121,8 @@ function getproduct($id) {
                 ?>
             </p>
             
+            <div style="border-bottom: medium; border-top: medium; ">
+            
             <p>Your subtotal is $<?php echo $subtotal ?></p>
             <p>Your taxes are $<?php echo $taxes ?></p>
             <p>Your shipping is $<?php echo $shipping ?></p>
@@ -129,7 +131,7 @@ function getproduct($id) {
                 Your Total is: $<?php echo $price_total; ?>
             </p>
             
-            
+            </div>
             
             <p>
                 Your order will be sent to:
