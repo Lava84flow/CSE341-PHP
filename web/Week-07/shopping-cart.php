@@ -21,7 +21,9 @@ function getproduct($id) {
     $stmt->execute();
     $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    return $product;
+    $productout = $product['0'];
+    
+    return $productout;
 }
 
 
