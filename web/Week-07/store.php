@@ -49,7 +49,7 @@ var_dump($products);
     <main>
         
         <form action="" method="post" class="store">
-            
+<!--            
         <div class="store-item">
             
             <h3>Red Bull</h3>
@@ -60,7 +60,7 @@ var_dump($products);
                 <button type="submit" name="AddCart" value="bull">Add To Cart</button>
             </div>
         </div>
-        
+-->        
         <?php 
             foreach ($products as $product)
             {
@@ -71,7 +71,21 @@ var_dump($products);
                 $price =        $product['price'];
                 $description =  $product['description'];
                 $img_url =      $product['img_url'];
-                echo "<p>$title, $media_name, $dimensions, $price, $description, <img class=\"thumb\" src=\"$img_url\"</p>";
+                echo "
+                    <div class=\"store-item\">
+                        <h3>$title</h3>
+                        <span><strong>$price</strong></span>
+                        
+                        <img class=\"thumb\" src=\"$img_url\">
+                        
+                        <div class=\"centered-button\">
+                            <button type=\"submit\" name=\"AddCart\" value=\"$productid\">Add To Cart</button>
+                        </div>
+                        
+                        $media_name, $dimensions, $description
+                    
+                    </div>
+                ";
             }
         ?>
     </main>
