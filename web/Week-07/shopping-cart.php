@@ -5,7 +5,10 @@ session_start();
 require '../shared/dbconnect.php';
 $db = get_db();
 
-function getproduct(int $id) {
+function getproduct($id) {
+    
+    $db = get_db();
+    
     $query =    'SELECT price, img_url 
                 FROM anniesattic.products
                 WHERE idproducts = :id;';
@@ -27,21 +30,15 @@ if (isset($shopping_cart)) {
 } else {
     $shopping_cart = $_SESSION["shopping_cart"];
 }
-
-if (isset($price)) {
-    
-} else {
-    $price = $_SESSION["price"];
-}
     
 
 
 if (isset($_POST['RemoveCart'])) {
     unset($shopping_cart[$_POST['RemoveCart']]);
-    unset($price[$_POST['RemoveCart']]);
     $_SESSION["shopping_cart"] = $shopping_cart;
-    $_SESSION["price"] = $price;
 }
+
+var_dump($shopping_cart)
 
 ?>
 
@@ -109,6 +106,7 @@ if (isset($_POST['RemoveCart'])) {
                 
                 $cart_item = getproduct($id);
                     
+                var_dump($cart_item);
                     
                 echo    '<div class="store-item"><img class="thumb" src="'.$cart_item['img_url'].'">'.
                     '<div class="centered-button">
