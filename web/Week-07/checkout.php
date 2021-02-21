@@ -5,14 +5,18 @@ session_start();
 require '../shared/dbconnect.php';
 $db = get_db();
 
-$query =    'SELECT p.idproducts, p.title, mt.media_name, p.dimensions, p.price, p.description, p.img_url 
-            FROM anniesattic.products p JOIN anniesattic.media_type mt 
-            ON p.media_type_idmedia_type = mt.idmedia_type
-            ORDER BY p.idproducts;';
+$query =    'SELECT idaddresses, address_line1, address_line2, city, state, zipcode 
+            FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
 
 $stmt = $db->prepare($query);
+
+        $param_id = $_SESSION["id"];
+        $stmt->bindValue(':customerid', $param_id, PDO::PARAM_STR);
+
 $stmt->execute();
-$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$shipping_err = $billing_err = '';
 
 ?>
 
@@ -62,7 +66,53 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
                 <p>What address would you like to use?</p>
                 
+                <div class="form-group <?php echo (!empty($shipping_err)) ? 'has-error' : ''; ?>">                
+                    <label>Shipping Address</label>
+                    <select name="shipping-address" style="color: black;">
+                        <?php
+                            
+                            foreach ($addresses as $address) {
+                                $address_id =       $address['idaddresses'];
+                                $type =             $address['address_type'];
+                                $address_line1 =    $address['address_line1'];
+                                $address_line2 =    $address['address_line2'];
+                                $city =             $address['city'];
+                                $state =            $address['state'];
+                                $zipcode =          $address['zipcode'];
+                    
+                    
+                    
+                                echo "<option value=\"$address_id\">$address_line1 $address_line2, $city, $zipcode</option>";
+                            }
+                                
+                        ?>
+                    </select> 
+                    <span class="help-block"><?php echo $shipping_err; ?></span>
+                </div>
                 
+                <div class="form-group <?php echo (!empty($billing_err)) ? 'has-error' : ''; ?>">                
+                    <label>Billing Address</label>
+                    <select name="billing-address" style="color: black;">
+                        <?php
+                            
+                            foreach ($addresses as $address) {
+                                $address_id =       $address['idaddresses'];
+                                $type =             $address['address_type'];
+                                $address_line1 =    $address['address_line1'];
+                                $address_line2 =    $address['address_line2'];
+                                $city =             $address['city'];
+                                $state =            $address['state'];
+                                $zipcode =          $address['zipcode'];
+                    
+                    
+                    
+                                echo "<option value=\"$address_id\">$address_line1 $address_line2, $city, $zipcode</option>";
+                            }
+                                
+                        ?>
+                    </select> 
+                    <span class="help-block"><?php echo $billing_err; ?></span>
+                </div>
                 
                 <p>Don't have any saved addresses? <a href="add-addresses.php">Click here</a> to add one.</p>
                 
