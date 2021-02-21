@@ -122,22 +122,21 @@ if (isset($_POST['RemoveCart'])) {
                 
                     array_push($price_total, ltrim($cart_item["price"], ' $'));
                 
-                var_dump($price_total);
+                //var_dump($price_total);
                 //<img class="thumb" src="img/pixelart_P1_900x420-thumb.png">
             }
         }
             
         ?>
         
-            <span><strong>Subtotal: $<?php echo number_format((float)array_sum($price_total), 2, '.', ''); ?></strong></span>
+            <span><strong>Subtotal: $<?php echo $_SESSION["price_total"] number_format((float)array_sum($price_total), 2, '.', ''); ?></strong></span>
             
         </form>
         
         
             
-        <div class="centered-button" style="padding: 1em">
-            <form action="checkout.php" method="post" class="submit">
-                <button class="rounded centered-button" type="submit">Checkout</button>
+        <div style="text-align: center;">
+            <a href="checkout.php" class="project-button centered-button">Checkout</a>
         </div>
     </main>
     
