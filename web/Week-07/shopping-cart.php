@@ -107,8 +107,10 @@ var_dump($shopping_cart)
                 $cart_item = getproduct($id);
                     
                 var_dump($cart_item);
+                
+                var_dump($cart_item["img_url"]);
                     
-                echo    '<div class="store-item"><img class="thumb" src="'.$cart_item['img_url'].'">'.
+                echo    '<div class="store-item"><img class="thumb" src="'.$cart_item["img_url"].'">'.
                     '<div class="centered-button">
                         <button type="submit" name="RemoveCart" value="'.key($shopping_cart).'">Delete From Cart</button>
                     </div></div>';
