@@ -67,7 +67,7 @@ var_dump($_SESSION["shopping_cart"]);
     
     <main>
         
-        <div>
+        <div style="text-align: center;">
             <a href="prove07.php" class="project-button centered-button">Go Back</a>
         </div>
         
@@ -105,15 +105,9 @@ var_dump($_SESSION["shopping_cart"]);
             
         </form>
         
-        <div>
-            <a href="prove07.php" class="project-button centered-button">Go Back</a>
-        </div>
-        
-        <form action="shoppingcart.php" method="post" class="submit">
-            <div style="text-align: center">
-                <button class="rounded" type="submit" value="View Cart">View Cart</button>
-            </div>
-        </form>            
+        <div style="text-align: center;">
+            <a href="shopping-cart.php" class="project-button centered-button">View Cart</a>
+        </div>            
             
     </main>
 
