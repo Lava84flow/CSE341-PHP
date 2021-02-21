@@ -77,10 +77,8 @@ if (isset($_POST['RemoveCart'])) {
     
     <main>
         
-        <div class="centered-button" style="padding: 1em">
-            <form action="store.php" method="post" class="submit">
-                <button class="rounded" type="submit">Back to Store</button>
-            </form>
+        <div style="text-align: center;">
+            <a href="store.php" class="project-button centered-button">Back to Store</a>
         </div>
         
         <form style="text-align: center" action="shopping-cart.php" method="post" class="submit">
