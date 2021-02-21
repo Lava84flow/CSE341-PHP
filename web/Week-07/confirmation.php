@@ -8,11 +8,16 @@ require '../shared/dbconnect.php';
 
 
 
-//$_SESSION["price_total"];
+//
 
     
+$subtotal = $_SESSION["price_subtotal"];
+
+$taxes = $subtotal * 0.05;
+
+$shipping = 10.00;
     
-    $price_total = '';
+    $price_total = $subtotal + $taxes + $shipping;
 
 
 
@@ -115,6 +120,10 @@ function getproduct($id) {
                         }
                 ?>
             </p>
+            
+            <p>Your subtotal is $<?php echo $subtotal ?></p>
+            <p>Your taxes are $<?php echo $taxes ?></p>
+            <p>Your shipping is $<?php echo $shipping ?></p>
             
             <p>
                 Your Total is: $<?php echo $price_total; ?>
