@@ -1,7 +1,7 @@
 <?php
 
 // Initialize the session
-//session_start();
+session_start();
 
 require '../shared/dbconnect.php';
 $db = get_db();
