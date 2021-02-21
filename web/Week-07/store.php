@@ -27,7 +27,7 @@ if (isset($_SESSION["shopping_cart"])) {
 }
 
 
-var_dump($_SESSION["shopping_cart"]);
+//var_dump($_SESSION["shopping_cart"]);
 
 
 
