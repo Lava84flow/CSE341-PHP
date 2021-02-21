@@ -51,7 +51,7 @@ if (isset($_POST['RemoveCart'])) {
 <head>
 <meta charset="utf-8">
 <title>Week 03 | Shopping Cart</title>
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
 </head>

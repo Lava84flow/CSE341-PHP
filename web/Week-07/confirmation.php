@@ -2,16 +2,26 @@
 // Start the session
 session_start();
 
+$query = 'SELECT idaddresses, address_line1, address_line2, city, state, zipcode FROM anniesattic.addresses WHERE customers_idcustomers = :customerid;';
+        $stmt = $db->prepare($query);
+//        echo var_dump($stmt);
+        
+        $param_id = $_SESSION["id"];
+        $stmt->bindValue(':customerid', $param_id, PDO::PARAM_STR);
+        
+        
+//        echo var_dump($stmt);
+        
+        $stmt->execute();
+//        echo var_dump($stmt);
+        
+        $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //echo var_dump($addresses);
 
-$firstName = htmlspecialchars($_POST["first_name"]);
-$lastName = htmlspecialchars($_POST["last_name"]);
 
-$addressLine1 = htmlspecialchars($_POST["line1"]);
-$addressLine2 = htmlspecialchars($_POST["line2"]);
 
-$city = htmlspecialchars($_POST["city"]);
-$state = htmlspecialchars($_POST["state"]);
-$zip = htmlspecialchars($_POST["zip"]);
+
+
 
 ?>
 
@@ -19,8 +29,8 @@ $zip = htmlspecialchars($_POST["zip"]);
 <html>
 <head>
 <meta charset="utf-8">
-<title>Week 03 | Confirmation</title>
-    
+<title>Week 07 | Project 1 | Confirmation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link href="../shared/main.css" rel="stylesheet" type="text/css">
     <script src="../shared/main.js" defer></script>
 </head>
@@ -39,7 +49,7 @@ $zip = htmlspecialchars($_POST["zip"]);
     <header>        
         <?php 
             include '../shared/header.php';
-            echo '<h3>Week 03 | Confirmation</h3></span>';
+            echo '<h3>Week 07 | Project 1 | Confirmation</h3></span>';
         ?>    
     </header>
     </div>
@@ -47,25 +57,6 @@ $zip = htmlspecialchars($_POST["zip"]);
     <main>
         
         <div>
-            
-            <?php 
-            
-                $title_map = [
-                    "bull" => '"Red Bull"',
-                    "cliffs" => '"Town on the Cliffs"',
-                    "orc" => '"Green Orc"',
-                    "space" => '"Space from a Moon"'
-                ];
-            
-                $price_map = [
-                    "bull" => '$20.00',
-                    "cliffs" => '$25.00',
-                    "orc" => '$15.00',
-                    "space" => '$10.00'
-                    
-                ]
-            
-            ?>
             
             <p>
                 You Ordered: 
@@ -117,8 +108,6 @@ $zip = htmlspecialchars($_POST["zip"]);
 
 <?php
 // remove all session variables
-session_unset();
+session_unset($_SESSION["shopping_cart"]);
 
-// destroy the session
-session_destroy();
 ?>
