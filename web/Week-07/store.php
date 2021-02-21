@@ -15,6 +15,24 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 var_dump($products);
+
+
+if (isset($_SESSION["shopping_cart"])) {
+    if (isset($_POST['AddCart'])) {
+        array_push($_SESSION["shopping_cart"], $_POST['AddCart']);
+    }
+} else {
+    $_SESSION["shopping_cart"] = [];
+}
+
+
+var_dump($_SESSION["shopping_cart"]);
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE HTML>
@@ -48,19 +66,12 @@ var_dump($products);
     
     <main>
         
-        <form action="" method="post" class="store">
-<!--            
-        <div class="store-item">
-            
-            <h3>Red Bull</h3>
-            <span><strong>$20.00</strong></span> 
-            
-            <img class="thumb" src="img/f05c82111541689.60041b9f63641-thumb.png">
-            <div class="centered-button">
-                <button type="submit" name="AddCart" value="bull">Add To Cart</button>
-            </div>
+        <div>
+            <a href="prove07.php" class="project-button centered-button">Go Back</a>
         </div>
--->        
+        
+        <form action="" method="post" class="store">
+      
         <?php 
             foreach ($products as $product)
             {
@@ -76,18 +87,33 @@ var_dump($products);
                         <h3>$title</h3>
                         <span><strong>$price</strong></span>
                         
+                        <span>$media_name, $dimensions inches</span>
+                        
+                        <span>$description</span>
+                        
                         <img class=\"thumb\" src=\"$img_url\">
                         
                         <div class=\"centered-button\">
                             <button type=\"submit\" name=\"AddCart\" value=\"$productid\">Add To Cart</button>
                         </div>
-                        
-                        $media_name, $dimensions, $description
                     
                     </div>
                 ";
             }
         ?>
+            
+        </form>
+        
+        <div>
+            <a href="prove07.php" class="project-button centered-button">Go Back</a>
+        </div>
+        
+        <form action="shoppingcart.php" method="post" class="submit">
+            <div style="text-align: center">
+                <button class="rounded" type="submit" value="View Cart">View Cart</button>
+            </div>
+        </form>            
+            
     </main>
 
     <div>
