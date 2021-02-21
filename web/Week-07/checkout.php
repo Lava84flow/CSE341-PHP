@@ -34,10 +34,9 @@ session_start();
     </div>
     
     <main>
-        <div class="centered-button" style="padding: 1em">
-            <form action="shoppingcart.php" method="post" class="submit">
-                <button class="rounded" type="submit">Back to Cart</button>
-            </form>
+        
+        <div style="text-align: center;">
+            <a href="shopping-cart.php" class="project-button centered-button">Back to Cart</a>
         </div>
         
         <div style="text-align: center">
@@ -49,10 +48,8 @@ session_start();
         <div class="centered-button" style="padding-top: 1em">
             <form action="confirmation.php" method="post" class="submit">
                 <div style="text-align: left">
-                <div style="width: 100%">
-                <label>First Name</label><br>
-                <input type="text" name="first_name">
-                </div>
+                
+                    
                     
                 </div>
                 
