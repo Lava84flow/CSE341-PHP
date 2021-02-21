@@ -121,6 +121,8 @@ if (isset($_POST['RemoveCart'])) {
                     next($shopping_cart);
                 
                     array_push($price_total, $cart_item["price"]);
+                
+                var_dump($price_total);
                 //<img class="thumb" src="img/pixelart_P1_900x420-thumb.png">
             }
         }
