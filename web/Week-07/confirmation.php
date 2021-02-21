@@ -121,7 +121,7 @@ function getproduct($id) {
                 ?>
             </p>
             
-            <div style="border-bottom: medium; border-top: medium; ">
+            <div style="border-bottom: medium solid darkred; border-top: medium solid darkred; width: 100%;">
             
             <p>Your subtotal is $<?php echo $subtotal ?></p>
             <p>Your taxes are $<?php echo $taxes ?></p>
