@@ -14,7 +14,8 @@ $query =    'SELECT p.idproducts, p.title, mt.media_name, p.dimensions, p.price,
 $stmt = $db->prepare($query);
 $stmt->execute();
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-var_dump($products);
+
+//var_dump($products);
 
 
 if (isset($_SESSION["shopping_cart"])) {
@@ -86,9 +87,9 @@ var_dump($_SESSION["shopping_cart"]);
                     <div class=\"store-item\">
                         <h3>$title</h3>
                         <span><strong>$price</strong></span>
-                        
+                        <br />
                         <span>$media_name, $dimensions inches</span>
-                        
+                        <br />
                         <span>$description</span>
                         
                         <img class=\"thumb\" src=\"$img_url\">
