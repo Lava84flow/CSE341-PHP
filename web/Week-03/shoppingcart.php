@@ -94,10 +94,10 @@ if (isset($_POST['RemoveCart'])) {
             }
         }
         
-            
+          var_dump($price)  
             
         ?>
-        
+            
             <span><strong>Subtotal: $<?php echo number_format((float)array_sum($price), 2, '.', ''); ?></strong></span>
             
         </form>
