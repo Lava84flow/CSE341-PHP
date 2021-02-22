@@ -105,9 +105,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["shopping_cart"])) {
     
     $param_shipping_address = $shipping_address["address_line1"].' '.$shipping_address["address_line2"].', '.$shipping_address["city"] . ', ' . $shipping_address["state"] . ' ' . $shipping_address["zipcode"];
     
-    var_dump($param_billing_address);
+    var_dump($param_shipping_address);
     
-    $param_billing_address = $$billing_address["address_line1"].' '.$$billing_address["address_line2"].', '.$$billing_address["city"] . ', ' . $$billing_address["state"] . ' ' . $$billing_address["zipcode"];
+    $param_billing_address = $billing_address["address_line1"].' '.$billing_address["address_line2"].', '.$billing_address["city"] . ', ' . $billing_address["state"] . ' ' . $billing_address["zipcode"];
     
     var_dump($param_billing_address);
 
