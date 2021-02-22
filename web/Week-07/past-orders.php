@@ -28,7 +28,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $stmt->execute();
 //        echo var_dump($stmt);
         
-        $addresses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //echo var_dump($addresses);
 
 ?>
@@ -64,7 +64,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     
     <main>
         <?php 
-            if (!empty($addresses)) {
+            if (!empty($orders)) {
                 
                 echo '
                     <table style="width:100%">
