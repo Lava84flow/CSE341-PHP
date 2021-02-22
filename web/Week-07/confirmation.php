@@ -13,7 +13,11 @@ $shipping = 10.00;
     
 $price_total = $subtotal + $taxes + $shipping;
 
+$orderid = getorderid();
 
+$shipping_address = getaddress($_POST['shipping-address']);
+
+$billing_address = getaddress($_POST['billing-address']);
 
 function getaddress($id) {
     
@@ -84,45 +88,39 @@ function getorderid() {
     
 }
 
-
-$orderid = getorderid();
-
-var_dump($orderid);
-
-/*
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["shopping_cart"])) {
     // Prepare an insert statement
-    $query = "INSERT INTO anniesattic.orders VALUES (DEFAULT, :customers_idcustomers, :address_type, :address_line1, :address_line2, :city, :state, :zipcode);";
+    $query = "INSERT INTO anniesattic.orders VALUES (DEFAULT, :customers_idcustomers, :subtotal, :taxes, :shipping, :status, :shipping_address, :billing_address);";
 
     $stmt = $db->prepare($query);
 
 //        echo var_dump($stmt);
     $param_id = $_SESSION["id"];
-    $param_line1 = $line1;
+    $param_subtotal = $subtotal;
 
-    $param_line2 = $line2;
+    $param_taxes = $taxes;
 
-    $param_city = $city;
-    $param_state = $state;
-    $param_zipcode = $zipcode;
-    $param_type = $type;
+    $param_shipping = $shipping;
+    $param_status = 'In Progress';
+    
+    $param_shipping_address = $shipping_address["address_line1"].' '.$shipping_address["address_line2"].', '.$shipping_address["city"] . ', ' . $shipping_address["state"] . ' ' . $shipping_address["zipcode"];
+    
+    $param_billing_address = $$billing_address["address_line1"].' '.$$billing_address["address_line2"].', '.$$billing_address["city"] . ', ' . $$billing_address["state"] . ' ' . $$billing_address["zipcode"];
 
     //var_dump($type);
     //var_dump($param_type);
 
     $stmt->bindValue(':customers_idcustomers', $param_id, PDO::PARAM_INT);
-    $stmt->bindValue(':address_type', $param_type, PDO::PARAM_STR);
-    $stmt->bindValue(':address_line1', $param_line1, PDO::PARAM_STR);
-    $stmt->bindValue(':address_line2', $param_line2, PDO::PARAM_STR);
-    $stmt->bindValue(':city', $param_city, PDO::PARAM_STR);
-    $stmt->bindValue(':state', $param_state, PDO::PARAM_STR);
-    $stmt->bindValue(':zipcode', $param_zipcode, PDO::PARAM_STR);
+    $stmt->bindValue(':subtotal', $param_subtotal, PDO::PARAM_INT);
+    $stmt->bindValue(':taxes', $param_taxes, PDO::PARAM_INT);
+    $stmt->bindValue(':shipping', $param_shipping, PDO::PARAM_INT);
+    $stmt->bindValue(':status', $param_status, PDO::PARAM_STR);
+    $stmt->bindValue(':shipping_address', $param_shipping_address, PDO::PARAM_STR);
+    $stmt->bindValue(':billing_address', $param_billing_address, PDO::PARAM_STR);
 
     $stmt->execute();
 }
-
-
-*/
+ 
 
 ?>
 
@@ -187,7 +185,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["shopping_cart"])) {
             
             <p>
                 Your order will be sent to:
-                <?php $shipping_address = getaddress($_POST['shipping-address']) ?>
                 
                 <br>
                 
@@ -204,7 +201,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["shopping_cart"])) {
             
             <p>
                 The billing address is:
-                <?php $billing_address = getaddress($_POST['billing-address']) ?>
                 
                 <br>
                 
