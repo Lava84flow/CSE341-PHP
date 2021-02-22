@@ -64,7 +64,65 @@ function getproduct($id) {
     return $productout;
 }
 
+function getorderid() {    
+    
+    $db = get_db();
+    
+    $query = 'SELECT last_value FROM anniesattic.orders_idorders_seq;';
+        $stmt = $db->prepare($query); 
+        
+        $stmt->execute();
+    
+        $curvalues = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        $inbetween = $curvalues['0'];
+    
+        $curvalue = $inbetween['last_value'];
+        //echo var_dump($curvalues);
+    
+    return $curvalue;
+    
+}
+
+
+$orderid = getorderid();
+
+var_dump($orderid);
+
+/*
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["shopping_cart"])) {
+    // Prepare an insert statement
+    $query = "INSERT INTO anniesattic.orders VALUES (DEFAULT, :customers_idcustomers, :address_type, :address_line1, :address_line2, :city, :state, :zipcode);";
+
+    $stmt = $db->prepare($query);
+
+//        echo var_dump($stmt);
+    $param_id = $_SESSION["id"];
+    $param_line1 = $line1;
+
+    $param_line2 = $line2;
+
+    $param_city = $city;
+    $param_state = $state;
+    $param_zipcode = $zipcode;
+    $param_type = $type;
+
+    //var_dump($type);
+    //var_dump($param_type);
+
+    $stmt->bindValue(':customers_idcustomers', $param_id, PDO::PARAM_INT);
+    $stmt->bindValue(':address_type', $param_type, PDO::PARAM_STR);
+    $stmt->bindValue(':address_line1', $param_line1, PDO::PARAM_STR);
+    $stmt->bindValue(':address_line2', $param_line2, PDO::PARAM_STR);
+    $stmt->bindValue(':city', $param_city, PDO::PARAM_STR);
+    $stmt->bindValue(':state', $param_state, PDO::PARAM_STR);
+    $stmt->bindValue(':zipcode', $param_zipcode, PDO::PARAM_STR);
+
+    $stmt->execute();
+}
+
+
+*/
 
 ?>
 
