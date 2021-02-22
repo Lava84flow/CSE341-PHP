@@ -4,12 +4,6 @@ session_start();
 
 require '../shared/dbconnect.php';
 //$db = get_db();
-
-
-
-
-//
-
     
 $subtotal = $_SESSION["price_subtotal"];
 
@@ -17,7 +11,7 @@ $taxes = floatval($subtotal) * 0.05;
 
 $shipping = 10.00;
     
-    $price_total = $subtotal + $taxes + $shipping;
+$price_total = $subtotal + $taxes + $shipping;
 
 
 
@@ -148,6 +142,23 @@ function getproduct($id) {
                 <br>
                 
                 <?php echo $shipping_address["city"] . ', ' . $shipping_address["state"] . ' ' . $shipping_address["zipcode"] ?> 
+            </p>
+            
+            <p>
+                The billing address is:
+                <?php $billing_address = getaddress($_POST['billing-address']) ?>
+                
+                <br>
+                
+                <?php echo htmlspecialchars($_SESSION["fname"]) . ' ' . htmlspecialchars($_SESSION["lname"]) ?>
+                
+                <br>
+                
+                <?php echo $billing_address["address_line1"] . ' ' . $billing_address["address_line2"] ?>
+                
+                <br>
+                
+                <?php echo $billing_address["city"] . ', ' . $billing_address["state"] . ' ' . $billing_address["zipcode"] ?> 
             </p>
         </div>
         <div style="text-align: center;">
