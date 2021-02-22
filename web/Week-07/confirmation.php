@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["shopping_cart"])) {
     $stmt->bindValue(':shipping_address', $param_shipping_address, PDO::PARAM_STR);
     $stmt->bindValue(':billing_address', $param_billing_address, PDO::PARAM_STR);
 
-    $stmt->execute();
+//    $stmt->execute();
 }
  
 
